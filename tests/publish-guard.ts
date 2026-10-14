@@ -9,6 +9,9 @@ export const rules: Rule[] = [
 	{ name: 'evals standard claim', pattern: /without evals/i },
 	{ name: 'Action Execution framework', pattern: /\bAction Execution\b/i },
 	{ name: 'Responses API migration', pattern: /\bResponses API\b/i },
+	{ name: 'exact team size', pattern: /\b(?:28|34|43|48)\b/ },
+	{ name: 'home town', pattern: /\bBeverly\b/i },
+	{ name: 'IC re-embed PR count', pattern: /\b\d+\s+(?:AI-assisted\s+)?(?:PRs|pull requests)\b/i },
 ];
 
 export function violations(text: string): string[] {

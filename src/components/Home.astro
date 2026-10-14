@@ -1,0 +1,218 @@
+---
+import '@fontsource-variable/inter';
+import { Picture } from 'astro:assets';
+import headshot from '../assets/headshot.jpg';
+import {
+	alsoExperience,
+	experience,
+	impact,
+	links,
+	person,
+	principles,
+	talks,
+	talksNote,
+	testimonials,
+	writing,
+} from '../content/site';
+import '../styles/base.css';
+import '../styles/theme.css';
+
+const description = `${person.title}. ${person.tagline} Led the org of about 40 engineers behind HubSpot’s Customer Agent.`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{person.name} · {person.title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
+
+		<header class="hero">
+			<div class="hero-photo">
+				<Picture
+					src={headshot}
+					widths={[320, 480, 725]}
+					sizes="(min-width: 960px) 256px, 160px"
+					formats={['avif', 'webp']}
+					alt="Portrait of Matt Sumner, smiling"
+					loading="eager"
+				/>
+			</div>
+			<div class="hero-text">
+				<p class="eyebrow">{person.title}</p>
+				<h1>{person.name}</h1>
+				<p class="tagline">{person.tagline}</p>
+				{person.intro.map((paragraph) => <p class="intro">{paragraph}</p>)}
+				<p class="where">
+					<span>{person.location}</span>
+					<span>{person.workPreferences}</span>
+				</p>
+				<nav class="cta" aria-label="Get in touch">
+					<a class="button button-primary" href={links.email}>Email me</a>
+					<a class="button" href={links.booking}>Book a chat</a>
+					<a class="button" href={links.linkedin}>LinkedIn</a>
+					{links.resume && <a class="button" href={links.resume}>Résumé (PDF)</a>}
+				</nav>
+			</div>
+		</header>
+
+		<main id="main">
+			<section id="impact" aria-labelledby="impact-heading">
+				<h2 id="impact-heading">Impact</h2>
+				<ul class="stats">
+					{
+						impact.map((stat) => (
+							<li class="stat">
+								<span class="stat-figure">{stat.figure}</span>
+								<span class="stat-label">{stat.label}</span>
+								<span class="stat-detail">{stat.detail}</span>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
+			<section id="leadership" aria-labelledby="leadership-heading">
+				<h2 id="leadership-heading">How I lead</h2>
+				<div class="principles">
+					{
+						principles.map((principle, index) => (
+							<article class="principle">
+								<span class="principle-number" aria-hidden="true">
+									{String(index + 1).padStart(2, '0')}
+								</span>
+								<h3>{principle.title}</h3>
+								<p>{principle.body}</p>
+							</article>
+						))
+					}
+				</div>
+			</section>
+
+			<section id="experience" aria-labelledby="experience-heading">
+				<h2 id="experience-heading">Experience</h2>
+				<ol class="timeline">
+					{
+						experience.map((job) => (
+							<li class="company">
+								<div class="company-head">
+									<h3>{job.company}</h3>
+									<p class="meta">
+										{job.place} · {job.dates}
+									</p>
+								</div>
+								<ol class="roles">
+									{job.roles.map((role) => (
+										<li class="role">
+											<h4>{role.title}</h4>
+											<p class="meta">{role.dates}</p>
+											<p>{role.summary}</p>
+										</li>
+									))}
+								</ol>
+							</li>
+						))
+					}
+				</ol>
+				<ul class="also">
+					{
+						alsoExperience.map((item) => (
+							<li>
+								<strong>{item.title}</strong> <span>{item.detail}</span>{' '}
+								<span class="meta">{item.dates}</span>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
+			<section id="speaking" aria-labelledby="speaking-heading">
+				<h2 id="speaking-heading">Speaking</h2>
+				<ul class="talks">
+					{
+						talks.map((talk) => (
+							<li class="talk">
+								<span class="talk-title">{talk.title}</span>
+								<span class="meta">
+									{talk.venue}
+									{talk.year && ` · ${talk.year}`}
+								</span>
+							</li>
+						))
+					}
+				</ul>
+				<p class="note">{talksNote}</p>
+			</section>
+
+			<section id="praise" aria-labelledby="praise-heading">
+				<h2 id="praise-heading">What people say</h2>
+				<div class="quotes">
+					{
+						testimonials.map((testimonial) => (
+							<figure class="quote">
+								<blockquote cite={links.recommendations}>
+									<p>“{testimonial.quote}”</p>
+								</blockquote>
+								<figcaption>{testimonial.name}</figcaption>
+							</figure>
+						))
+					}
+				</div>
+				<p class="more">
+					<a href={links.recommendations}>Read the full recommendations on LinkedIn</a>
+				</p>
+			</section>
+
+			<section id="writing" aria-labelledby="writing-heading">
+				<h2 id="writing-heading">Writing</h2>
+				<p>{writing.summary}</p>
+				<ul class="posts">
+					{
+						writing.posts.map((post) => (
+							<li>
+								<a href={post.href}>{post.title}</a> <span class="meta">thoughtbot · {post.year}</span>
+							</li>
+						))
+					}
+				</ul>
+				<p class="more">
+					<a href={links.thoughtbot}>All my posts on thoughtbot’s blog</a>
+					<span aria-hidden="true"> · </span>
+					<a href={links.blog}>My old blog, 2013–2019</a>
+				</p>
+			</section>
+
+			<section id="contact" aria-labelledby="contact-heading">
+				<h2 id="contact-heading">Let’s talk</h2>
+				<p class="contact-lead">
+					If you’re building an engineering org that people want to be part of, I’d love to hear about it.
+				</p>
+				<p class="where">
+					<span>{person.location}</span>
+					<span>{person.workPreferences}</span>
+				</p>
+				<nav class="cta" aria-label="Get in touch again">
+					<a class="button button-primary" href={links.email}>Email me</a>
+					<a class="button" href={links.booking}>Book a chat</a>
+					<a class="button" href={links.linkedin}>LinkedIn</a>
+					{links.resume && <a class="button" href={links.resume}>Résumé (PDF)</a>}
+				</nav>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<p>
+				© 2026 {person.name} · <a href={links.email}>{links.emailAddress}</a> ·
+				<a href={links.github}>GitHub</a>
+			</p>
+		</footer>
+	</body>
+</html>

@@ -48,6 +48,13 @@ test.describe('guard rules', () => {
 		'no AI change ships without evals',
 		'I built the Action Execution framework',
 		'led the Responses API migration',
+		'My org of 43 engineers',
+		'grew from 34 to 48 engineers',
+		'refocused to 28 around Customer Agent',
+		'shipping 24 AI-assisted PRs',
+		'merged 24 pull requests',
+		'Based in Beverly, MA',
+		'beverly (Boston area)',
 	]) {
 		test(`flags "${sample}"`, () => {
 			expect(violations(sample)).not.toEqual([]);
@@ -57,10 +64,16 @@ test.describe('guard rules', () => {
 	for (const sample of [
 		'$0 → $10M ARR in about 18 months',
 		'71% of conversations resolved automatically',
-		'a 43-engineer org; grew 34 → 48 engineers',
 		'HubSpot, Apr 2020 – Oct 2026',
 		'EPIC Week, every year 2020–2025',
 		'matt.m.sumner@gmail.com',
+		'My org of about 40 engineers',
+		'grew the group from about 30 to 50 engineers',
+		'a studio of about 30 people',
+		'shipping production code with AI-assisted development',
+		'7 promotions in a single year',
+		'Greater Boston',
+		'Open to remote (US), hybrid in Boston, or on-site in Boston.',
 	]) {
 		test(`allows "${sample}"`, () => {
 			expect(violations(sample)).toEqual([]);

@@ -16,6 +16,15 @@ npm run check    # type-check .astro files
 npm test         # build, then run the Playwright suite against the built site
 ```
 
+## Content and design
+
+The site is a single page. Its words and links live in `src/content/site.ts`,
+the markup in `src/components/Home.astro`, and the styles in `src/styles/`
+(`base.css` for resets and shared behaviour, `theme.css` for the design and its
+light and dark colour tokens). Inter is self-hosted via Fontsource, so pages
+make no requests to Google. The headshot in `src/assets/` has had its EXIF
+metadata stripped, and Astro serves it as responsive AVIF and WebP.
+
 ## Tests
 
 `npm test` builds the site and runs [Playwright](https://playwright.dev) in
@@ -30,7 +39,9 @@ and doesn't clash with a preview server you already have running.
   dark mode.
 - `tests/publish-guard.spec.ts`: scans every built HTML, XML, TXT and JSON file
   for things that must never be published: phone numbers and `tel:` links,
-  salary-style or pricing figures, compensation and benefits terms, and claims
+  salary-style or pricing figures, compensation and benefits terms, exact team
+  sizes (always rounded to the nearest 10 on the site), PR counts, Matt's home
+  town (the site says Greater Boston), and claims
   that aren't accurate. Rules live in `tests/publish-guard.ts` and are matched
   by pattern, so no private values are stored in this public repo. The guard
   fails if `dist/` contains a PDF, until it can extract PDF text. Each rule is
