@@ -54,7 +54,8 @@ which is connected to this GitHub repo:
 
 - **Production:** every push to `main` runs `npm run build` and then `npx wrangler deploy`.
 - **Previews:** every other branch runs `npm run build` and `npx wrangler preview`
-  (enabled by the empty `previews` block in `wrangler.jsonc`) and gets its own preview URL,
+  (enabled by `previews` and `preview_urls` in `wrangler.jsonc`) and gets its own
+  public `workers.dev` preview URL,
   which Cloudflare posts as a comment on the PR.
 
 To check the deploy config locally without deploying, run
