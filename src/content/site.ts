@@ -143,6 +143,21 @@ export const talksNote = 'I’ve spoken at HubSpot’s EPIC Week every year sinc
 
 export const testimonials = [
 	{
+		quote: 'He’s been the single most impactful person in my career.',
+		name: 'Tanha P',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'He created space for healthy debate, encouraged different perspectives, and made it comfortable for people to speak openly and challenge ideas.',
+		name: 'Vijay Vadlamani',
+		relationship: 'Product partner',
+	},
+	{
+		quote: 'Matt has strong opinions and the technical depth to back them up, but he’s also someone I can disagree with.',
+		name: 'Lesley Burr',
+		relationship: 'Design partner',
+	},
+	{
 		quote: 'Matt is the rare kind of leader who is both deeply empathetic and highly effective, and he never treated those as a tradeoff.',
 		name: 'Lynnsey Martin',
 		relationship: 'Reported to Matt',
@@ -156,16 +171,6 @@ export const testimonials = [
 		quote: 'Matt was the manager who truly launched my career.',
 		name: 'Paul Leninger',
 		relationship: 'Reported to Matt',
-	},
-	{
-		quote: 'He created space for healthy debate, encouraged different perspectives, and made it comfortable for people to speak openly and challenge ideas.',
-		name: 'Vijay Vadlamani',
-		relationship: 'Product partner',
-	},
-	{
-		quote: 'Matt has strong opinions and the technical depth to back them up, but he’s also someone I can disagree with.',
-		name: 'Lesley Burr',
-		relationship: 'Design partner',
 	},
 	{
 		quote: 'He built a culture that was both high-performing and sustainable, where I could do my best work.',
@@ -190,11 +195,6 @@ export const testimonials = [
 	{
 		quote: 'Matt is a humble leader that people want to work for and can trust even in the midst of difficult transitions companies regularly experience.',
 		name: 'Samuel Chun',
-		relationship: 'Reported to Matt',
-	},
-	{
-		quote: 'He’s been the single most impactful person in my career.',
-		name: 'Tanha P',
 		relationship: 'Reported to Matt',
 	},
 ];
