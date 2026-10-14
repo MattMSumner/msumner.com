@@ -34,6 +34,25 @@ test('contact buttons point to the right places', async ({ page }) => {
 	expect(await page.getByRole('navigation').count()).toBe(2);
 });
 
+test('recommendations carousel', async ({ page }) => {
+	await page.goto('/');
+
+	const carousel = page.getByRole('region', { name: /Recommendations/ });
+	await expect(carousel.getByRole('listitem')).toHaveCount(11);
+
+	const previous = page.getByRole('button', { name: 'Previous recommendations' });
+	const next = page.getByRole('button', { name: 'Next recommendations' });
+	await expect(previous).toBeDisabled();
+	await expect(next).toBeEnabled();
+
+	await next.click();
+	await expect.poll(() => carousel.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+	await expect(previous).toBeEnabled();
+
+	await carousel.evaluate((el) => el.scrollTo({ left: el.scrollWidth, behavior: 'instant' }));
+	await expect(next).toBeDisabled();
+});
+
 test('headshot loads with alt text', async ({ page }) => {
 	await page.goto('/');
 

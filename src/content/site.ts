@@ -143,12 +143,59 @@ export const talksNote = 'I’ve spoken at HubSpot’s EPIC Week every year sinc
 
 export const testimonials = [
 	{
-		quote: 'Deeply empathetic and highly effective, and he never treated those as a tradeoff.',
+		quote: 'Matt is the rare kind of leader who is both deeply empathetic and highly effective, and he never treated those as a tradeoff.',
 		name: 'Lynnsey Martin',
+		relationship: 'Reported to Matt',
 	},
 	{
-		quote: 'The manager who truly launched my career.',
+		quote: 'Matt is probably the most proactively caring, human, and impactful manager I’ve worked for in my almost-20-year career.',
+		name: 'Spencer Williams',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'Matt was the manager who truly launched my career.',
 		name: 'Paul Leninger',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'He created space for healthy debate, encouraged different perspectives, and made it comfortable for people to speak openly and challenge ideas.',
+		name: 'Vijay Vadlamani',
+		relationship: 'Product partner',
+	},
+	{
+		quote: 'Matt has strong opinions and the technical depth to back them up, but he’s also someone I can disagree with.',
+		name: 'Lesley Burr',
+		relationship: 'Design partner',
+	},
+	{
+		quote: 'He built a culture that was both high-performing and sustainable, where I could do my best work.',
+		name: 'Elle Gray',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'Matt leads with empathy, transparency, and intention, fostering a team culture where engineers from all backgrounds can bring their true selves to work and do their best.',
+		name: 'Kirthika Muthukumaran',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'He relentlessly drives clarity and scope for his team while constantly remaining focused on impact that can be delivered for the customer.',
+		name: 'Zach Hogan',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'He sought to understand your point of view before providing his own, which I think can be hard to find these days.',
+		name: 'Joe Daly',
+		relationship: 'Product manager on Customer Agent',
+	},
+	{
+		quote: 'Matt is a humble leader that people want to work for and can trust even in the midst of difficult transitions companies regularly experience.',
+		name: 'Samuel Chun',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'He’s been the single most impactful person in my career.',
+		name: 'Tanha P',
+		relationship: 'Reported to Matt',
 	},
 ];
 

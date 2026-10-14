@@ -153,21 +153,38 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 			</section>
 
 			<section id="praise" aria-labelledby="praise-heading">
-				<h2 id="praise-heading">What people say</h2>
-				<div class="quotes">
-					{
-						testimonials.map((testimonial) => (
-							<figure class="quote">
-								<blockquote cite={links.recommendations}>
-									<p>“{testimonial.quote}”</p>
-								</blockquote>
-								<figcaption>{testimonial.name}</figcaption>
-							</figure>
-						))
-					}
+				<div class="section-head">
+					<h2 id="praise-heading">What people say</h2>
+					<div class="carousel-controls" data-carousel-controls hidden>
+						<button type="button" class="carousel-button" data-carousel-step="-1" aria-controls="quotes" aria-label="Previous recommendations">
+							<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" /></svg>
+						</button>
+						<button type="button" class="carousel-button" data-carousel-step="1" aria-controls="quotes" aria-label="Next recommendations">
+							<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" /></svg>
+						</button>
+					</div>
+				</div>
+				<div class="quotes-viewport" id="quotes" role="region" aria-label="Recommendations (scrolls sideways)" tabindex="0" data-carousel>
+					<ul class="quotes">
+						{
+							testimonials.map((testimonial) => (
+								<li class="quote-item">
+									<figure class="quote">
+										<blockquote cite={links.recommendations}>
+											<p>“{testimonial.quote}”</p>
+										</blockquote>
+										<figcaption>
+											<span class="quote-name">{testimonial.name}</span>
+											<span class="quote-relationship">{testimonial.relationship}</span>
+										</figcaption>
+									</figure>
+								</li>
+							))
+						}
+					</ul>
 				</div>
 				<p class="more">
-					<a href={links.recommendations}>Read the full recommendations on LinkedIn</a>
+					<a href={links.recommendations}>Read all {testimonials.length} recommendations on LinkedIn</a>
 				</p>
 			</section>
 
@@ -214,5 +231,36 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 				<a href={links.github}>GitHub</a>
 			</p>
 		</footer>
+
+		<script>
+			const viewport = document.querySelector<HTMLElement>('[data-carousel]');
+			const controls = document.querySelector<HTMLElement>('[data-carousel-controls]');
+
+			if (viewport && controls) {
+				const buttons = controls.querySelectorAll<HTMLButtonElement>('[data-carousel-step]');
+				const step = () => {
+					const item = viewport.querySelector<HTMLElement>('.quote-item');
+					const gap = parseFloat(getComputedStyle(viewport.firstElementChild as Element).columnGap) || 0;
+					return item ? item.offsetWidth + gap : viewport.clientWidth;
+				};
+				const update = () => {
+					const max = viewport.scrollWidth - viewport.clientWidth;
+					buttons.forEach((button) => {
+						const direction = Number(button.dataset.carouselStep);
+						button.disabled = direction < 0 ? viewport.scrollLeft <= 1 : viewport.scrollLeft >= max - 1;
+					});
+				};
+
+				buttons.forEach((button) =>
+					button.addEventListener('click', () => {
+						viewport.scrollBy({ left: Number(button.dataset.carouselStep) * step() });
+					}),
+				);
+				viewport.addEventListener('scroll', update, { passive: true });
+				window.addEventListener('resize', update);
+				controls.hidden = false;
+				update();
+			}
+		</script>
 	</body>
 </html>
