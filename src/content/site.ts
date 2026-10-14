@@ -3,7 +3,7 @@ export const person = {
 	title: 'Engineering Leader',
 	tagline: 'I build diverse, engaged engineering teams, and they deliver.',
 	intro: [
-		'Most recently I was Director of Engineering for Customer Agent at HubSpot, the AI agent that now resolves 71% of customer conversations automatically. My org of 43 engineers took it from an early experiment to $10M ARR in about 18 months.',
+		'Most recently I was Director of Engineering for Customer Agent at HubSpot, the AI agent that now resolves 71% of customer conversations automatically. My org of 40⁠–⁠50 engineers took it from an early experiment to $10M ARR in about 18 months.',
 		'My role was impacted in HubSpot’s 7% restructuring in October 2026, and I’m looking for my next engineering leadership role on a team building products people trust.',
 	],
 	location: 'Beverly, MA (Boston area)',
@@ -34,7 +34,7 @@ export const impact = [
 		detail: 'Automatically, by Customer Agent, across chat, email and voice.',
 	},
 	{
-		figure: '43',
+		figure: '40⁠–⁠50',
 		label: 'engineers in my org',
 		detail: 'Mission-based teams, with a roughly 50/50 gender split.',
 	},
@@ -73,12 +73,12 @@ export const experience = [
 			{
 				title: 'Director of Engineering, Customer Agent',
 				dates: 'Mar 2026 – Oct 2026',
-				summary: 'Led 43 engineers in mission-based teams building Customer Agent, HubSpot’s AI agent for customer service. Live Chat and Voice joined the group in 2026.',
+				summary: 'Led 40⁠–⁠50 engineers in mission-based teams building Customer Agent, HubSpot’s AI agent for customer service. Live Chat and Voice joined the group in 2026.',
 			},
 			{
 				title: 'Senior Engineering Manager, Customer Agent & Communication',
 				dates: 'Jun 2022 – Mar 2026',
-				summary: 'Grew the group from 34 to 48 engineers with only 3 departures, refocused it around Customer Agent, and rebuilt it to 43. Was DRI for defining the billable “resolution” behind Customer Agent’s move to resolution-based pricing. Led the org through a Code Orange quality push that cut email churn from 41% to 22%, and its 7 launches for Spring Spotlight 2024, including the AI chatbot.',
+				summary: 'Grew the group from 34 to 48 engineers with only 3 departures, refocused it around Customer Agent, and rebuilt it. Was DRI for defining the billable “resolution” behind Customer Agent’s move to resolution-based pricing. Led the org through a Code Orange quality push that cut email churn from 41% to 22%, and its 7 launches for Spring Spotlight 2024, including the AI chatbot.',
 			},
 			{
 				title: 'Engineering Lead, Conversations',

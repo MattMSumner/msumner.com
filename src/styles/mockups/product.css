@@ -49,15 +49,15 @@ main > section,
 
 .hero-photo {
 	position: relative;
-	width: min(100%, 20rem);
-	justify-self: center;
+	width: min(60%, 10rem);
+	justify-self: start;
 }
 
 .hero-photo::before {
 	content: '';
 	position: absolute;
-	inset: 1.25rem -1.25rem -1.25rem 1.25rem;
-	border-radius: 1.5rem;
+	inset: 0.75rem -0.75rem -0.75rem 0.75rem;
+	border-radius: 1.25rem;
 	background: var(--accent-soft);
 }
 
@@ -66,7 +66,7 @@ main > section,
 	aspect-ratio: 4 / 5;
 	object-fit: cover;
 	object-position: 50% 20%;
-	border-radius: 1.5rem;
+	border-radius: 1.25rem;
 }
 
 .eyebrow {
@@ -372,14 +372,19 @@ h4 {
 
 @media (min-width: 960px) {
 	.hero {
-		grid-template-columns: 1fr 22rem;
+		grid-template-columns: 1fr 16rem;
 		align-items: center;
+		column-gap: 4rem;
 		padding-block: 5rem 6rem;
 	}
 
 	.hero-photo {
 		order: 2;
 		width: 100%;
+	}
+
+	.hero-photo::before {
+		inset: 1rem -1rem -1rem 1rem;
 	}
 
 	.stats {
