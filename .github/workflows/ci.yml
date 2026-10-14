@@ -16,4 +16,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
