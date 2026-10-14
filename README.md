@@ -17,4 +17,4 @@ npm run check    # type-check .astro files
 ## CI
 
 GitHub Actions runs `npm run check` and `npm run build` on every pull request
-and on pushes to `master`.
+and on pushes to `main`.
