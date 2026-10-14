@@ -41,3 +41,20 @@ and doesn't clash with a preview server you already have running.
 GitHub Actions runs `npm run check` and `npm test` on every pull request and on
 pushes to `main`. If tests fail, the Playwright HTML report (with traces) is
 uploaded as a build artifact.
+
+## Hosting
+
+The site is static files served by
+[Cloudflare Workers static assets](https://developers.cloudflare.com/workers/static-assets/),
+configured in `wrangler.jsonc` (worker name `msumner-com`, serving `dist/`). No
+Astro adapter is needed because every page is pre-rendered.
+
+Deploys run through [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/),
+which is connected to this GitHub repo:
+
+- **Production:** every push to `main` runs `npm run build` and then `npx wrangler deploy`.
+- **Previews:** every other branch runs `npm run build` and gets its own preview URL,
+  shown in the PR's checks.
+
+To check the deploy config locally without deploying, run
+`npm run build && npx wrangler deploy --dry-run`.
