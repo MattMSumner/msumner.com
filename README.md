@@ -92,10 +92,32 @@ The site is static files served by
 configured in `wrangler.jsonc` (worker name `msumner-com`, serving `dist/`). No
 Astro adapter is needed because every page is pre-rendered.
 
+### Domain
+
+msumner.com is registered at Squarespace, with its DNS on Cloudflare
+(nameservers `chip` and `ines`). It's served by the Worker as a custom domain
+declared in `wrangler.jsonc`; `workers_dev` is off, so msumner.com is the only
+production URL.
+
+These are set in the Cloudflare dashboard rather than in this repo:
+
+- **DNS records:** `www` is a proxied `AAAA 100::` placeholder. The TXT records
+  `v=spf1 -all`, `_dmarc` (`p=reject`) and an empty `_domainkey` say the domain
+  sends no email.
+- **Redirect rule:** `www.msumner.com` → `https://msumner.com` (301, keeps the
+  path and query string).
+- **SSL/TLS:** Always Use HTTPS is on.
+- **DNSSEC:** on in Cloudflare, with its DS record at Squarespace.
+- **Web Analytics:** automatic setup, so Cloudflare injects the beacon script
+  as pages are served.
+
+### Deploys
+
 Deploys run through [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/),
 which is connected to this GitHub repo:
 
-- **Production:** every push to `main` runs `npm run build` and then `npx wrangler deploy`.
+- **Production:** every push to `main` runs `npm run build` and then `npx wrangler deploy`,
+  which publishes to msumner.com.
 - **Previews:** every other branch runs `npm run build` and `npx wrangler preview`
   (enabled by `previews` and `preview_urls` in `wrangler.jsonc`) and gets its own
   public preview URL at `https://<branch>-msumner-com.matt-m-sumner.workers.dev`,
