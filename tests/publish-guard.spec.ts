@@ -63,6 +63,8 @@ test.describe('guard rules', () => {
 		'+1 978.555.0123',
 		'<a href="tel:+19785550123">',
 		'Looking for $180k',
+		'$0 → $10M ARR in about 18 months',
+		'$10 million in AI revenue',
 		'base of $180,000',
 		'$0.99 per resolution',
 		'$1/conversation',
@@ -85,7 +87,7 @@ test.describe('guard rules', () => {
 	}
 
 	for (const sample of [
-		'$0 → $10M ARR in about 18 months',
+		'more than 10,000 businesses using Customer Agent',
 		'72% of conversations resolved automatically',
 		'HubSpot, Apr 2020 – Oct 2026',
 		'EPIC Week, every year 2020–2025',

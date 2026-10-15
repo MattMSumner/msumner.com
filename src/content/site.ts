@@ -3,10 +3,10 @@ export const person = {
 	title: 'Engineering Leader',
 	tagline: 'I build diverse, engaged engineering teams, and they deliver.',
 	intro: [
-		'Most recently I was Director of Engineering for Customer Agent at HubSpot, the AI agent that now resolves 72% of customer conversations automatically. My org of about 40 engineers took it from an early experiment to $10M ARR in about 18 months.',
+		'Most recently I was Director of Engineering for Customer Agent at HubSpot, the AI agent that now resolves 72% of customer conversations automatically. My org of about 40 engineers took it from an early experiment to a product more than 10,000 businesses use.',
 		'My role was impacted in HubSpot’s 7% restructuring in October 2026, and I’m looking for my next engineering leadership role on a team building products people trust.',
 	],
-	proof: 'Led the org behind HubSpot’s Customer Agent: $0 to $10M ARR, and 72% of customer conversations resolved automatically.',
+	proof: 'Led the org behind HubSpot’s Customer Agent: used by more than 10,000 businesses, and resolving 72% of customer conversations automatically.',
 	location: 'Greater Boston',
 	workPreferences: 'Open to remote (US), hybrid in Boston, or on-site in Boston.',
 };
@@ -25,9 +25,9 @@ export const links = {
 
 export const impact = [
 	{
-		figure: '$0 → $10M',
-		label: 'ARR from Customer Agent',
-		detail: 'New usage-based AI revenue in about 18 months of monetization, with more than 10,000 businesses using it.',
+		figure: '10,000+',
+		label: 'businesses using Customer Agent',
+		detail: 'Activated by mid-2026, on outcome-based pricing that bills per resolution.',
 	},
 	{
 		figure: '72%',

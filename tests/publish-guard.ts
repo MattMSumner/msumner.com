@@ -4,6 +4,7 @@ export const rules: Rule[] = [
 	{ name: 'phone number', pattern: /(?:\+?1[\s.-]?)?\(?\b\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\b/ },
 	{ name: 'tel: link', pattern: /\btel:/i },
 	{ name: 'salary-style figure', pattern: /\$\s?\d{2,3}(?:,\d{3}|\s?k)\b/i },
+	{ name: 'Customer Agent revenue', pattern: /\$\s?\d+(?:\.\d+)?\s?(?:M\b|million)|\bARR\b/ },
 	{ name: 'pricing figure', pattern: /\$\d+(?:\.\d+)?\s*(?:per|\/)\s*[a-z]/i },
 	{ name: 'compensation or benefits', pattern: /\b(?:salary|severance|unemployment)\b/i },
 	{ name: 'evals standard claim', pattern: /without evals/i },
