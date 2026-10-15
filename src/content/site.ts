@@ -32,7 +32,7 @@ export const impact = [
 	{
 		figure: '72%',
 		label: 'of conversations resolved',
-		detail: 'Automatically, by Customer Agent, across chat, email and voice.',
+		detail: 'Up from 20% in 2025, across more than 10,000 businesses using Customer Agent.',
 	},
 	{
 		figure: 'About 40',
