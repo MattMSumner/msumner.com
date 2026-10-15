@@ -1,9 +1,12 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
 import { expect, test } from '@playwright/test';
+import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
+import { resumeSourceHash, subjectPrefix } from '../scripts/resume-source.ts';
 import { violations, visibleText } from './publish-guard';
 
-const dist = join(import.meta.dirname, '..', 'dist');
+const root = join(import.meta.dirname, '..');
+const dist = join(root, 'dist');
 
 function files(dir: string): string[] {
 	return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -19,10 +22,13 @@ test.describe('built site', () => {
 		expect(built.some((file) => file.endsWith('.html'))).toBe(true);
 	});
 
-	test('contains no PDFs the guard cannot read', () => {
-		const pdfs = built.filter((file) => extname(file) === '.pdf').map((file) => relative(dist, file));
-		expect(pdfs, 'teach the publish guard to extract PDF text before shipping a PDF').toEqual([]);
-	});
+	for (const file of built.filter((file) => extname(file) === '.pdf')) {
+		test(`${relative(dist, file)} has nothing that must not be published`, async () => {
+			const { text, metadata } = await readPdf(file);
+			expect(text.length, 'PDF has extractable text').toBeGreaterThan(100);
+			expect([...violations(text), ...violations(text.replace(/ /g, '')), ...violations(metadata)]).toEqual([]);
+		});
+	}
 
 	for (const file of built.filter((file) => ['.html', '.xml', '.txt', '.json'].includes(extname(file)))) {
 		test(`${relative(dist, file)} has nothing that must not be published`, () => {
@@ -31,6 +37,13 @@ test.describe('built site', () => {
 			expect([...violations(text), ...violations(raw).filter((name) => name === 'tel: link')]).toEqual([]);
 		});
 	}
+});
+
+test('resume.pdf matches its source', async () => {
+	const { metadata } = await readPdf(join(root, 'public', 'resume.pdf'));
+	expect(metadata, 'resume.pdf is out of date: run npm run resume').toContain(
+		`${subjectPrefix}${resumeSourceHash(root)}`,
+	);
 });
 
 test.describe('guard rules', () => {
@@ -80,3 +93,16 @@ test.describe('guard rules', () => {
 		});
 	}
 });
+
+async function readPdf(file: string): Promise<{ text: string; metadata: string }> {
+	const task = getDocument({ data: new Uint8Array(readFileSync(file)) });
+	const pdf = await task.promise;
+	const pages: string[] = [];
+	for (let number = 1; number <= pdf.numPages; number++) {
+		const content = await (await pdf.getPage(number)).getTextContent();
+		pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
+	}
+	const { info } = (await pdf.getMetadata()) as { info: Record<string, unknown> };
+	await task.destroy();
+	return { text: pages.join(' ').replace(/\s+/g, ' '), metadata: Object.values(info).map(String).join(' ') };
+}

@@ -1,0 +1,31 @@
+---
+import '@fontsource-variable/inter';
+import { Content } from '../content/resume.md';
+import { links, person } from '../content/site';
+import '../styles/base.css';
+import '../styles/resume.css';
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{person.name} · Résumé</title>
+		<meta name="description" content={`Résumé of ${person.name}, ${person.title}.`} />
+		<link rel="canonical" href={canonical} />
+	</head>
+	<body class="resume-page">
+		<nav class="resume-nav" aria-label="Résumé">
+			<a href="/">← msumner.com</a>
+			{links.resume && <a class="button button-primary" href={links.resume}>Download PDF</a>}
+		</nav>
+		<main class="resume">
+			<Content />
+		</main>
+	</body>
+</html>

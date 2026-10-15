@@ -5,14 +5,16 @@ for (const colorScheme of ['light', 'dark'] as const) {
 	test.describe(`${colorScheme} mode`, () => {
 		test.use({ colorScheme });
 
-		test('home page has no WCAG A/AA violations', async ({ page }) => {
-			await page.goto('/');
+		for (const path of ['/', '/resume/']) {
+			test(`${path} has no WCAG A/AA violations`, async ({ page }) => {
+				await page.goto(path);
 
-			const results = await new AxeBuilder({ page })
-				.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
-				.analyze();
+				const results = await new AxeBuilder({ page })
+					.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
+					.analyze();
 
-			expect(results.violations).toEqual([]);
-		});
+				expect(results.violations).toEqual([]);
+			});
+		}
 	});
 }

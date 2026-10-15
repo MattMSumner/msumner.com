@@ -1,0 +1,194 @@
+:root {
+	--bg: #ffffff;
+	--surface: #f4f6fb;
+	--ink: #0f172a;
+	--muted: #475569;
+	--rule: #e2e8f0;
+	--accent: #3047d1;
+	--link: #3047d1;
+	--focus: #3047d1;
+	--button-ink: #ffffff;
+	--font-body: 'Inter Variable', system-ui, sans-serif;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	:root {
+		--bg: #0b1020;
+		--surface: #121a2f;
+		--ink: #e6eaf2;
+		--muted: #a3adc2;
+		--rule: #222c45;
+		--accent: #93a6ff;
+		--link: #a5b4ff;
+		--focus: #a5b4ff;
+		--button-ink: #0b1020;
+	}
+}
+
+.resume-page {
+	font-size: 1rem;
+}
+
+.resume-nav,
+.resume {
+	width: min(100% - 2rem, 50rem);
+	margin-inline: auto;
+}
+
+.resume-nav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-block: 1.5rem;
+	font-weight: 600;
+}
+
+.resume-nav .button {
+	padding: 0.6rem 1.15rem;
+	border-radius: 999px;
+	background: var(--accent);
+	color: var(--button-ink);
+	font-size: 0.95rem;
+}
+
+.resume {
+	padding-bottom: 4rem;
+}
+
+.resume h1 {
+	font-weight: 800;
+	font-size: 2.5rem;
+	letter-spacing: -0.03em;
+	line-height: 1.1;
+}
+
+.resume h1 + p {
+	margin-top: 0.25rem;
+	color: var(--accent);
+	font-size: 1.1rem;
+}
+
+.resume h1 + p + p {
+	margin-top: 0.5rem;
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+
+.resume h2 {
+	margin-top: 2rem;
+	margin-bottom: 0.75rem;
+	padding-bottom: 0.35rem;
+	border-bottom: 2px solid var(--ink);
+	font-weight: 800;
+	font-size: 1rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.resume h3 {
+	margin-top: 1.25rem;
+	margin-bottom: 0.35rem;
+	font-weight: 700;
+	font-size: 1.1rem;
+}
+
+.resume p + ul,
+.resume p + p {
+	margin-top: 0.4rem;
+}
+
+.resume ul {
+	display: grid;
+	gap: 0.35rem;
+	margin-block: 0.4rem 0.9rem;
+	padding-left: 1.1rem;
+	list-style: disc;
+}
+
+.resume li::marker {
+	color: var(--muted);
+}
+
+.resume blockquote {
+	margin-block: 0.5rem;
+	padding-left: 1rem;
+	border-left: 3px solid var(--accent);
+}
+
+.resume blockquote em {
+	color: var(--muted);
+}
+
+@media print {
+	@page {
+		size: Letter;
+		margin: 0.5in 0.6in;
+	}
+
+	:root {
+		--bg: #ffffff;
+		--ink: #111827;
+		--muted: #4b5563;
+		--accent: #2a3fb8;
+		--link: #111827;
+	}
+
+	.resume-nav {
+		display: none;
+	}
+
+	.resume-page {
+		font-size: 9.5pt;
+		line-height: 1.38;
+	}
+
+	.resume,
+	.resume-nav {
+		width: auto;
+		padding: 0;
+	}
+
+	.resume a {
+		text-decoration: none;
+	}
+
+	.resume h1 {
+		font-size: 22pt;
+	}
+
+	.resume h1 + p {
+		font-size: 11pt;
+	}
+
+	.resume h1 + p + p {
+		font-size: 9pt;
+	}
+
+	.resume h2 {
+		margin-top: 12pt;
+		margin-bottom: 5pt;
+		padding-bottom: 2pt;
+		border-bottom-width: 1.5pt;
+		font-size: 9.5pt;
+		break-after: avoid;
+	}
+
+	.resume h3 {
+		margin-top: 8pt;
+		margin-bottom: 2pt;
+		font-size: 10.5pt;
+		break-after: avoid;
+	}
+
+	.resume ul {
+		gap: 2pt;
+		margin-block: 3pt 6pt;
+	}
+
+	.resume li,
+	.resume blockquote {
+		break-inside: avoid;
+	}
+}

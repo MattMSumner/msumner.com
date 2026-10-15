@@ -12,6 +12,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "test": "npm run build && playwright test",
+    "resume": "node scripts/build-resume-pdf.ts",
     "astro": "astro"
   },
   "dependencies": {
@@ -23,6 +24,8 @@
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.64.1",
     "@types/node": "^24.19.2",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.4.299",
     "typescript": "^6.0.3",
     "wrangler": "^4.151.0"
   }

@@ -25,6 +25,24 @@ light and dark colour tokens). Inter is self-hosted via Fontsource, so pages
 make no requests to Google. The headshot in `src/assets/` has had its EXIF
 metadata stripped, and Astro serves it as responsive AVIF and WebP.
 
+## Résumé
+
+The résumé lives in `src/content/resume.md`, the public version of Matt's
+general résumé (no phone number, team sizes rounded, nothing internal). It's
+served as a web page at `/resume/` and as `public/resume.pdf`.
+
+The PDF is generated, not hand-made. After changing the résumé source or its
+styles, run:
+
+```sh
+npm run resume   # builds the site, prints /resume/ to public/resume.pdf with Playwright
+```
+
+and commit the new PDF. The script stamps a fingerprint of the source files
+(`src/content/resume.md`, `src/pages/resume.astro`, `src/styles/base.css` and
+`src/styles/resume.css`) into the PDF's metadata, and a test fails if the
+committed PDF doesn't match the current source.
+
 ## Tests
 
 `npm test` builds the site and runs [Playwright](https://playwright.dev) in
@@ -43,8 +61,8 @@ and doesn't clash with a preview server you already have running.
   sizes (always rounded to the nearest 10 on the site), PR counts, Matt's home
   town (the site says Greater Boston), and claims
   that aren't accurate. Rules live in `tests/publish-guard.ts` and are matched
-  by pattern, so no private values are stored in this public repo. The guard
-  fails if `dist/` contains a PDF, until it can extract PDF text. Each rule is
+  by pattern, so no private values are stored in this public repo. PDFs are
+  scanned too: their text and metadata are extracted with pdf.js. Each rule is
   tested against examples it should flag and real content it should allow.
 
 ## CI

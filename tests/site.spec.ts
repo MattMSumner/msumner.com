@@ -30,6 +30,7 @@ test('contact buttons point to the right places', async ({ page }) => {
 			'href',
 			'https://www.linkedin.com/in/matt-m-sumner/',
 		);
+		await expect(nav.getByRole('link', { name: 'Résumé (PDF)' })).toHaveAttribute('href', '/resume.pdf');
 	}
 	expect(await page.getByRole('navigation').count()).toBe(2);
 });
@@ -51,6 +52,18 @@ test('recommendations carousel', async ({ page }) => {
 
 	await carousel.evaluate((el) => el.scrollTo({ left: el.scrollWidth, behavior: 'instant' }));
 	await expect(next).toBeDisabled();
+});
+
+test('résumé page and PDF', async ({ page, request }) => {
+	await page.goto('/resume/');
+
+	await expect(page).toHaveTitle('Matt Sumner · Résumé');
+	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Matt Sumner');
+	await expect(page.getByRole('link', { name: 'Download PDF' })).toHaveAttribute('href', '/resume.pdf');
+
+	const pdf = await request.get('/resume.pdf');
+	expect(pdf.status()).toBe(200);
+	expect(pdf.headers()['content-type']).toContain('application/pdf');
 });
 
 test('headshot loads with alt text', async ({ page }) => {

@@ -17,7 +17,7 @@ export const links = {
 	linkedin: 'https://www.linkedin.com/in/matt-m-sumner/',
 	recommendations: 'https://www.linkedin.com/in/matt-m-sumner/details/recommendations/',
 	github: 'https://github.com/MattMSumner',
-	resume: null as string | null,
+	resume: '/resume.pdf' as string | null,
 	thoughtbot: 'https://thoughtbot.com/blog/authors/matt-sumner',
 	blog: 'https://appallingfarrago.com',
 };
