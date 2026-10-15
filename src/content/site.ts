@@ -27,22 +27,22 @@ export const impact = [
 	{
 		figure: '$0 → $10M',
 		label: 'ARR from Customer Agent',
-		detail: 'New usage-based AI revenue in about 18 months of monetization.',
+		detail: 'New usage-based AI revenue in about 18 months of monetization, with more than 10,000 businesses using it.',
 	},
 	{
 		figure: '72%',
 		label: 'of conversations resolved',
-		detail: 'Up from 20% at launch, across more than 10,000 businesses using Customer Agent.',
+		detail: 'Automatically, by Customer Agent, up from 20% at launch.',
 	},
 	{
-		figure: 'About 40',
-		label: 'engineers in my org',
-		detail: 'Mission-based teams, with a roughly 50/50 gender split.',
+		figure: '53%',
+		label: 'of HubSpot’s AI usage',
+		detail: 'Customer Agent led all AI credit consumption at HubSpot in Q1 2026.',
 	},
 	{
 		figure: '2nd',
 		label: 'highest eNPS at HubSpot',
-		detail: 'Company-wide in 2023, through re-orgs, a strategic pivot and the pace of AI.',
+		detail: 'Company-wide in 2023, across an org of about 40 engineers with a roughly 50/50 gender split.',
 	},
 ];
 
