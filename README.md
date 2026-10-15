@@ -53,9 +53,14 @@ the static Inter files from `@fontsource/inter`) and
 browser and can't go stale. Its words come from `src/content/site.ts`.
 
 `src/components/SocialMeta.astro` adds the Open Graph and Twitter tags to each
-page. They always point at `https://msumner.com/og.png`, so shared preview URLs
-won't show the image until the domain is live. After launch, refresh LinkedIn's
-cache with its [Post Inspector](https://www.linkedin.com/post-inspector/).
+page. They always point at `https://msumner.com/og.png`, so branch preview URLs
+show the live image, not the branch's. After changing the image, refresh
+LinkedIn's cache with its [Post Inspector](https://www.linkedin.com/post-inspector/).
+
+The Post Inspector's preview looks blurry because it shows LinkedIn's own
+160×84 thumbnail scaled up, not our image. To see what people will actually
+see, start a LinkedIn post containing the link and look at the card in the
+editor, without publishing.
 
 ## Tests
 
@@ -122,6 +127,12 @@ which is connected to this GitHub repo:
   (enabled by `previews` and `preview_urls` in `wrangler.jsonc`) and gets its own
   public preview URL at `https://<branch>-msumner-com.matt-m-sumner.workers.dev`,
   which Cloudflare posts as a comment on the PR.
+
+The free plan runs one build at a time, so a production build can sit queued
+behind a preview build. When `main` points at the same commit as a branch, the
+green "Workers Builds" check on GitHub may be that branch's preview build, not
+production. To confirm a deploy, check the Deployments tab in the Cloudflare
+dashboard or load msumner.com and look for the change.
 
 To check the deploy config locally without deploying, run
 `npm run build && npx wrangler deploy --dry-run`.
