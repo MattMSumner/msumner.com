@@ -86,7 +86,7 @@ test.describe('guard rules', () => {
 
 	for (const sample of [
 		'$0 → $10M ARR in about 18 months',
-		'71% of conversations resolved automatically',
+		'72% of conversations resolved automatically',
 		'HubSpot, Apr 2020 – Oct 2026',
 		'EPIC Week, every year 2020–2025',
 		'matt.m.sumner@gmail.com',

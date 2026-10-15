@@ -6,7 +6,7 @@ Greater Boston · [matt.m.sumner@gmail.com](mailto:matt.m.sumner@gmail.com) · [
 
 ## Summary
 
-Engineering leader with 15 years in software, from self-taught Rails developer to consultancy studio lead to Director of Engineering at HubSpot. I build diverse, highly engaged teams, and they deliver. My Customer Agent org of about 40 engineers took HubSpot's AI agent from $0 to $10M ARR in usage-based AI revenue in about 18 months; it now resolves 71% of customer conversations automatically. Through re-orgs, a product pivot and rapid AI change, the org kept an eNPS among the highest at HubSpot.
+Engineering leader with 15 years in software, from self-taught Rails developer to consultancy studio lead to Director of Engineering at HubSpot. I build diverse, highly engaged teams, and they deliver. My Customer Agent org of about 40 engineers took HubSpot's AI agent from $0 to $10M ARR in usage-based AI revenue in about 18 months; it now resolves 72% of customer conversations automatically. Through re-orgs, a product pivot and rapid AI change, the org kept an eNPS among the highest at HubSpot.
 
 ## Experience
 
@@ -15,7 +15,7 @@ Engineering leader with 15 years in software, from self-taught Rails developer t
 **Director of Engineering, Customer Agent** · Mar 2026 – Oct 2026<br>
 **Senior Engineering Manager, Customer Agent & Communication** · Jun 2022 – Mar 2026
 
-- **Led the engineering org behind Customer Agent**, HubSpot's AI customer-service agent, from launch to **$10M ARR in usage-based AI revenue within about 18 months of monetization**, on top of HubSpot's subscription revenue. It now resolves **71% of conversations** with no human involved, across thousands of businesses and millions of conversations a month.
+- **Led the engineering org behind Customer Agent**, HubSpot's AI customer-service agent, from launch to **$10M ARR in usage-based AI revenue within about 18 months of monetization**, on top of HubSpot's subscription revenue. It now resolves **72% of conversations** with no human involved, across thousands of businesses and millions of conversations a month.
 - **Owned the definition of a billable "resolution."** As DRI, defined what counts as a billable resolution for HubSpot's move to resolution-based pricing for Customer Agent, and presented it to the SOX steering committee.
 - **Kept engagement and retention high through constant change.** eNPS stayed among the highest at HubSpot (**2nd-highest company-wide in 2023**) through multiple re-orgs, a strategic pivot and a company-wide quality push. In 2024 the org grew from about 30 to 50 engineers with **only 3 departures**.
 - **Scaled and reshaped the org deliberately.** Grew the product group from about 30 to 50 engineers, refocused it to about 30 around Customer Agent, then rebuilt to **about 40 engineers** in mission-based teams with clear ownership and metrics.
