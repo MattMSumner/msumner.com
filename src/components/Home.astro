@@ -18,7 +18,7 @@ import {
 import '../styles/base.css';
 import '../styles/theme.css';
 
-const description = `${person.title}. ${person.tagline} Led the org of about 40 engineers behind HubSpot’s Customer Agent.`;
+const description = `${person.title}. ${person.tagline} Led the org of up to 50 engineers behind HubSpot’s Customer Agent.`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -61,7 +61,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 					<a class="button button-primary" href={links.email}>Email me</a>
 					<a class="button" href={links.booking}>Book a chat</a>
 					<a class="button" href={links.linkedin}>LinkedIn</a>
-					{links.resume && <a class="button" href={links.resume}>Résumé (PDF)</a>}
+					{links.resume && <a class="button" href={links.resume}>Resume (PDF)</a>}
 				</nav>
 			</div>
 		</header>
@@ -222,7 +222,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 					<a class="button button-primary" href={links.email}>Email me</a>
 					<a class="button" href={links.booking}>Book a chat</a>
 					<a class="button" href={links.linkedin}>LinkedIn</a>
-					{links.resume && <a class="button" href={links.resume}>Résumé (PDF)</a>}
+					{links.resume && <a class="button" href={links.resume}>Resume (PDF)</a>}
 				</nav>
 			</section>
 		</main>
@@ -233,6 +233,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 				<a href={links.github}>GitHub</a>
 			</p>
 		</footer>
+
+		<div class="contact-bar" data-contact-bar>
+			<div class="contact-bar-inner">
+				<p class="contact-bar-name">{person.name}</p>
+				<nav class="contact-bar-links" aria-label="Quick contact">
+					<a class="button button-primary" href={links.email}>Email me</a>
+					<a class="button" href={links.booking}>Book a chat</a>
+				</nav>
+			</div>
+		</div>
 
 		<script>
 			const viewport = document.querySelector<HTMLElement>('[data-carousel]');
@@ -261,6 +271,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 				viewport.addEventListener('scroll', update, { passive: true });
 				window.addEventListener('resize', update);
 				controls.hidden = false;
+				update();
+			}
+
+			// Show the contact bar once the hero buttons have scrolled away, and hide it
+			// again while the closing contact buttons are on screen.
+			const bar = document.querySelector<HTMLElement>('[data-contact-bar]');
+			const [heroCta, contactCta] = document.querySelectorAll<HTMLElement>('.cta');
+
+			if (bar && heroCta && contactCta) {
+				const update = () => {
+					const heroPassed = heroCta.getBoundingClientRect().bottom < 0;
+					const contact = contactCta.getBoundingClientRect();
+					const contactVisible = contact.top < window.innerHeight && contact.bottom > 0;
+					bar.toggleAttribute('data-visible', heroPassed && !contactVisible);
+				};
+
+				window.addEventListener('scroll', update, { passive: true });
+				window.addEventListener('resize', update);
 				update();
 			}
 		</script>

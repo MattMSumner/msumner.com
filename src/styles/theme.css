@@ -434,6 +434,78 @@ h4 {
 	font-size: 0.9rem;
 }
 
+.contact-bar {
+	position: fixed;
+	inset-inline: 0;
+	bottom: 0;
+	z-index: 5;
+	padding: 0.75rem 1rem;
+	background: color-mix(in srgb, var(--bg) 92%, transparent);
+	backdrop-filter: blur(8px);
+	border-top: 1px solid var(--rule);
+	transform: translateY(100%);
+	visibility: hidden;
+}
+
+.contact-bar[data-visible] {
+	transform: none;
+	visibility: visible;
+}
+
+.contact-bar-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	width: min(100%, 70rem);
+	margin-inline: auto;
+}
+
+.contact-bar-name {
+	display: none;
+	margin: 0;
+	font-weight: 700;
+	color: var(--ink);
+}
+
+.contact-bar-links {
+	display: flex;
+	flex: 1;
+	gap: 0.75rem;
+}
+
+.contact-bar-links .button {
+	flex: 1;
+	justify-content: center;
+}
+
+@media (min-width: 640px) {
+	.contact-bar {
+		top: 0;
+		bottom: auto;
+		padding-block: 0.6rem;
+		border-top: 0;
+		border-bottom: 1px solid var(--rule);
+		transform: translateY(-100%);
+	}
+
+	.contact-bar[data-visible] {
+		transform: none;
+	}
+
+	.contact-bar-name {
+		display: block;
+	}
+
+	.contact-bar-links {
+		flex: none;
+	}
+
+	.contact-bar-links .button {
+		flex: none;
+	}
+}
+
 @media (min-width: 640px) {
 	.stats,
 	.principles {
@@ -470,5 +542,11 @@ h4 {
 @media (prefers-reduced-motion: no-preference) {
 	.quotes-viewport {
 		scroll-behavior: smooth;
+	}
+
+	.contact-bar {
+		transition:
+			transform 0.2s ease,
+			visibility 0.2s;
 	}
 }

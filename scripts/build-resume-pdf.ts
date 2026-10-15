@@ -28,7 +28,7 @@ try {
 	await browser.close();
 
 	const pdfDocument = await PDFDocument.load(pdf);
-	pdfDocument.setTitle('Matt Sumner · Résumé');
+	pdfDocument.setTitle('Matt Sumner · Resume');
 	pdfDocument.setAuthor('Matt Sumner');
 	pdfDocument.setSubject(`${subjectPrefix}${resumeSourceHash(root)}`);
 	pdfDocument.setCreator('msumner.com');

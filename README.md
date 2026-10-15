@@ -25,13 +25,13 @@ light and dark colour tokens). Inter is self-hosted via Fontsource, so pages
 make no requests to Google. The headshot in `src/assets/` has had its EXIF
 metadata stripped, and Astro serves it as responsive AVIF and WebP.
 
-## Résumé
+## Resume
 
-The résumé lives in `src/content/resume.md`, the public version of Matt's
-general résumé (no phone number, team sizes rounded, nothing internal). It's
+The resume lives in `src/content/resume.md`, the public version of Matt's
+general resume (no phone number, team sizes rounded, nothing internal). It's
 served as a web page at `/resume/` and as `public/resume.pdf`.
 
-The PDF is generated, not hand-made. After changing the résumé source or its
+The PDF is generated, not hand-made. After changing the resume source or its
 styles, run:
 
 ```sh

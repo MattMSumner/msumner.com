@@ -98,7 +98,7 @@ test.describe('guard rules', () => {
 		'shipping production code with AI-assisted development',
 		'7 promotions in a single year',
 		'Greater Boston',
-		'Open to remote (US), hybrid in Boston, or on-site in Boston.',
+		'Open to remote (US), hybrid or on-site in Boston.',
 	]) {
 		test(`allows "${sample}"`, () => {
 			expect(violations(sample)).toEqual([]);

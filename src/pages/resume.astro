@@ -7,7 +7,7 @@ import '../styles/base.css';
 import '../styles/resume.css';
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const description = `Résumé of ${person.name}, ${person.title}.`;
+const description = `Resume of ${person.name}, ${person.title}.`;
 ---
 
 <html lang="en">
@@ -17,13 +17,13 @@ const description = `Résumé of ${person.name}, ${person.title}.`;
 		<meta name="color-scheme" content="light dark" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<title>{person.name} · Résumé</title>
+		<title>{person.name} · Resume</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
-		<SocialMeta title={`${person.name} · Résumé`} description={description} />
+		<SocialMeta title={`${person.name} · Resume`} description={description} />
 	</head>
 	<body class="resume-page">
-		<nav class="resume-nav" aria-label="Résumé">
+		<nav class="resume-nav" aria-label="Resume">
 			<a href="/">← msumner.com</a>
 			{links.resume && <a class="button button-primary" href={links.resume}>Download PDF</a>}
 		</nav>

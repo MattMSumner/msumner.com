@@ -30,7 +30,7 @@ test('contact buttons point to the right places', async ({ page }) => {
 			'href',
 			'https://www.linkedin.com/in/matt-m-sumner/',
 		);
-		await expect(nav.getByRole('link', { name: 'Résumé (PDF)' })).toHaveAttribute('href', '/resume.pdf');
+		await expect(nav.getByRole('link', { name: 'Resume (PDF)' })).toHaveAttribute('href', '/resume.pdf');
 	}
 	expect(await page.getByRole('navigation').count()).toBe(2);
 });
@@ -54,10 +54,10 @@ test('recommendations carousel', async ({ page }) => {
 	await expect(next).toBeDisabled();
 });
 
-test('résumé page and PDF', async ({ page, request }) => {
+test('resume page and PDF', async ({ page, request }) => {
 	await page.goto('/resume/');
 
-	await expect(page).toHaveTitle('Matt Sumner · Résumé');
+	await expect(page).toHaveTitle('Matt Sumner · Resume');
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Matt Sumner');
 	await expect(page.getByRole('link', { name: 'Download PDF' })).toHaveAttribute('href', '/resume.pdf');
 
@@ -68,7 +68,7 @@ test('résumé page and PDF', async ({ page, request }) => {
 
 for (const [path, title] of [
 	['/', 'Matt Sumner · Engineering Leader'],
-	['/resume/', 'Matt Sumner · Résumé'],
+	['/resume/', 'Matt Sumner · Resume'],
 ]) {
 	test(`${path} has link preview tags`, async ({ page }) => {
 		await page.goto(path);
@@ -136,3 +136,25 @@ test('no horizontal scroll at phone width', async ({ page }) => {
 	);
 	expect(overflow).toBe(0);
 });
+
+for (const [label, viewport] of [
+	['desktop', { width: 1280, height: 800 }],
+	['phone', { width: 390, height: 844 }],
+] as const) {
+	test(`contact bar appears after the hero buttons scroll away (${label})`, async ({ page }) => {
+		await page.setViewportSize(viewport);
+		await page.goto('/');
+		const bar = page.getByRole('navigation', { name: 'Quick contact' });
+
+		await expect(bar).toBeHidden();
+		await page.locator('#experience').scrollIntoViewIfNeeded();
+		await expect(bar).toBeVisible();
+		await expect(bar.getByRole('link', { name: 'Email me' })).toHaveAttribute('href', 'mailto:matt.m.sumner@gmail.com');
+		await expect(bar.getByRole('link', { name: 'Book a chat' })).toHaveAttribute(
+			'href',
+			'https://calendar.app.google/wKUybcZfCQsHv3b1A',
+		);
+		await page.locator('#contact').scrollIntoViewIfNeeded();
+		await expect(bar).toBeHidden();
+	});
+}
