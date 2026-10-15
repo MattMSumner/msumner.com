@@ -6,6 +6,7 @@ export const person = {
 		'Most recently I was Director of Engineering for Customer Agent at HubSpot, the AI agent that now resolves 71% of customer conversations automatically. My org of about 40 engineers took it from an early experiment to $10M ARR in about 18 months.',
 		'My role was impacted in HubSpot’s 7% restructuring in October 2026, and I’m looking for my next engineering leadership role on a team building products people trust.',
 	],
+	proof: 'Led the org behind HubSpot’s Customer Agent: $0 to $10M ARR, and 71% of customer conversations resolved automatically.',
 	location: 'Greater Boston',
 	workPreferences: 'Open to remote (US), hybrid in Boston, or on-site in Boston.',
 };

@@ -1,0 +1,29 @@
+---
+import { height, width } from '../pages/og.png';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site);
+const image = new URL('/og.png', Astro.site);
+const imageAlt = 'Matt Sumner, Engineering Leader: I build diverse, engaged engineering teams, and they deliver.';
+---
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Matt Sumner" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content={String(width)} />
+<meta property="og:image:height" content={String(height)} />
+<meta property="og:image:alt" content={imageAlt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+<meta name="twitter:image:alt" content={imageAlt} />

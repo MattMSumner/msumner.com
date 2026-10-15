@@ -19,7 +19,8 @@ export function violations(text: string): string[] {
 }
 
 export function visibleText(html: string): string {
-	return html
+	const attributes = [...html.matchAll(/\b(?:content|alt|title|aria-label)="([^"]*)"/gi)].map((match) => match[1]);
+	return (html + ' ' + attributes.join(' '))
 		.replace(/<(script|style|svg)\b[\s\S]*?<\/\1>/gi, ' ')
 		.replace(/<[^>]+>/g, ' ')
 		.replace(/&nbsp;/g, ' ')

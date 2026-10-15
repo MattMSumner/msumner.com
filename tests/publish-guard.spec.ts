@@ -46,6 +46,16 @@ test('resume.pdf matches its source', async () => {
 	);
 });
 
+test('scans meta content, alt and title attributes as well as visible text', () => {
+	for (const html of [
+		'<meta name="description" content="Call 978-555-0123">',
+		'<img src="/a.png" alt="Call 978-555-0123">',
+		'<a href="/" title="Call 978-555-0123">Home</a>',
+	]) {
+		expect(violations(visibleText(html)), html).toContain('phone number');
+	}
+});
+
 test.describe('guard rules', () => {
 	for (const sample of [
 		'Call me on 978-555-0123',

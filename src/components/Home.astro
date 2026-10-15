@@ -2,6 +2,7 @@
 import '@fontsource-variable/inter';
 import { Picture } from 'astro:assets';
 import headshot from '../assets/headshot.jpg';
+import SocialMeta from './SocialMeta.astro';
 import {
 	alsoExperience,
 	experience,
@@ -31,6 +32,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<title>{person.name} · {person.title}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
+		<SocialMeta title={`${person.name} · ${person.title}`} description={description} />
 	</head>
 	<body>
 		<a class="skip-link" href="#main">Skip to content</a>

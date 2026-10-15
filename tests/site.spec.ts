@@ -66,6 +66,35 @@ test('résumé page and PDF', async ({ page, request }) => {
 	expect(pdf.headers()['content-type']).toContain('application/pdf');
 });
 
+for (const [path, title] of [
+	['/', 'Matt Sumner · Engineering Leader'],
+	['/resume/', 'Matt Sumner · Résumé'],
+]) {
+	test(`${path} has link preview tags`, async ({ page }) => {
+		await page.goto(path);
+
+		const meta = (selector: string) => page.locator(selector);
+		await expect(meta('meta[property="og:title"]')).toHaveAttribute('content', title);
+		await expect(meta('meta[property="og:url"]')).toHaveAttribute('content', `https://msumner.com${path}`);
+		await expect(meta('meta[property="og:description"]')).toHaveAttribute('content', /\S/);
+		await expect(meta('meta[property="og:image"]')).toHaveAttribute('content', 'https://msumner.com/og.png');
+		await expect(meta('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+		await expect(meta('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
+		await expect(meta('meta[property="og:image:alt"]')).toHaveAttribute('content', /Matt Sumner/);
+		await expect(meta('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+	});
+}
+
+test('link preview image is a 1200×630 PNG', async ({ request }) => {
+	const response = await request.get('/og.png');
+	expect(response.status()).toBe(200);
+	expect(response.headers()['content-type']).toContain('image/png');
+
+	const png = await response.body();
+	expect(png.subarray(1, 4).toString()).toBe('PNG');
+	expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1200, 630]);
+});
+
 test('headshot loads with alt text', async ({ page }) => {
 	await page.goto('/');
 

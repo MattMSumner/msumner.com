@@ -43,6 +43,20 @@ and commit the new PDF. The script stamps a fingerprint of the source files
 `src/styles/resume.css`) into the PDF's metadata, and a test fails if the
 committed PDF doesn't match the current source.
 
+## Link previews
+
+`src/pages/og.png.ts` generates `/og.png`, the 1200×630 image LinkedIn, Slack
+and others show when someone shares a link. It's built on every `astro build`
+with [satori](https://github.com/vercel/satori) (layout and text to SVG, using
+the static Inter files from `@fontsource/inter`) and
+[resvg](https://github.com/yisibl/resvg-js) (SVG to PNG), so it needs no
+browser and can't go stale. Its words come from `src/content/site.ts`.
+
+`src/components/SocialMeta.astro` adds the Open Graph and Twitter tags to each
+page. They always point at `https://msumner.com/og.png`, so shared preview URLs
+won't show the image until the domain is live. After launch, refresh LinkedIn's
+cache with its [Post Inspector](https://www.linkedin.com/post-inspector/).
+
 ## Tests
 
 `npm test` builds the site and runs [Playwright](https://playwright.dev) in

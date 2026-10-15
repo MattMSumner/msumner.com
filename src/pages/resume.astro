@@ -1,11 +1,13 @@
 ---
 import '@fontsource-variable/inter';
+import SocialMeta from '../components/SocialMeta.astro';
 import { Content } from '../content/resume.md';
 import { links, person } from '../content/site';
 import '../styles/base.css';
 import '../styles/resume.css';
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const description = `Résumé of ${person.name}, ${person.title}.`;
 ---
 
 <html lang="en">
@@ -16,8 +18,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<title>{person.name} · Résumé</title>
-		<meta name="description" content={`Résumé of ${person.name}, ${person.title}.`} />
+		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
+		<SocialMeta title={`${person.name} · Résumé`} description={description} />
 	</head>
 	<body class="resume-page">
 		<nav class="resume-nav" aria-label="Résumé">
