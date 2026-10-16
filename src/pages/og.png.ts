@@ -10,15 +10,14 @@ export const height = 630;
 
 const root = process.cwd();
 const font = (weight: number) =>
-	readFileSync(join(root, `node_modules/@fontsource/inter/files/inter-latin-${weight}-normal.woff`));
+	readFileSync(join(root, `node_modules/@fontsource/schibsted-grotesk/files/schibsted-grotesk-latin-${weight}-normal.woff`));
 const headshot = `data:image/jpeg;base64,${readFileSync(join(root, 'src/assets/headshot.jpg')).toString('base64')}`;
 
 const colors = {
-	bg: '#ffffff',
-	ink: '#0f172a',
-	muted: '#475569',
-	accent: '#3047d1',
-	accentSoft: '#e4e9ff',
+	bg: '#f3f0ea',
+	ink: '#1c211d',
+	muted: '#5f665f',
+	accent: '#24543f',
 };
 
 type Node = { type: string; props: { style?: Record<string, unknown>; children?: unknown; [key: string]: unknown } };
@@ -38,7 +37,7 @@ export const GET: APIRoute = async () => {
 			gap: 72,
 			padding: '72px 80px',
 			background: colors.bg,
-			fontFamily: 'Inter',
+			fontFamily: 'Schibsted Grotesk',
 			color: colors.ink,
 		},
 		[
@@ -49,32 +48,20 @@ export const GET: APIRoute = async () => {
 						{
 							display: 'flex',
 							alignSelf: 'flex-start',
-							padding: '8px 20px',
-							borderRadius: 999,
-							background: colors.accentSoft,
 							color: colors.accent,
 							fontSize: 26,
 							fontWeight: 600,
 						},
 						person.title,
 					),
-					el('div', { marginTop: 20, fontSize: 84, fontWeight: 800, letterSpacing: -3, lineHeight: 1 }, person.name),
+					el('div', { marginTop: 20, fontSize: 88, fontWeight: 700, letterSpacing: -3.5, lineHeight: 1 }, person.name),
 					el('div', { marginTop: 22, fontSize: 34, fontWeight: 600, lineHeight: 1.25, letterSpacing: -0.5 }, person.tagline),
 					el('div', { marginTop: 18, fontSize: 25, color: colors.muted, lineHeight: 1.4 }, person.proof),
 				]),
 				el('div', { display: 'flex', fontSize: 28, fontWeight: 600, color: colors.accent }, 'msumner.com'),
 			]),
 			el('div', { display: 'flex', position: 'relative', flexShrink: 0, width: 320, height: 395 }, [
-				el('div', {
-					position: 'absolute',
-					top: 20,
-					left: 20,
-					width: 300,
-					height: 375,
-					borderRadius: 28,
-					background: colors.accentSoft,
-				}),
-				el('img', { position: 'absolute', top: 0, left: 0, width: 300, height: 375, borderRadius: 28, objectFit: 'cover', objectPosition: '50% 20%' }, undefined, {
+				el('img', { position: 'absolute', top: 0, left: 0, width: 300, height: 375, borderRadius: 16, objectFit: 'cover', objectPosition: '50% 20%' }, undefined, {
 					src: headshot,
 					width: 300,
 					height: 375,
@@ -86,7 +73,7 @@ export const GET: APIRoute = async () => {
 	const svg = await satori(card as Parameters<typeof satori>[0], {
 		width,
 		height,
-		fonts: [400, 600, 800].map((weight) => ({ name: 'Inter', data: font(weight), weight: weight as 400 | 600 | 800, style: 'normal' as const })),
+		fonts: [400, 600, 700].map((weight) => ({ name: 'Schibsted Grotesk', data: font(weight), weight: weight as 400 | 600 | 700, style: 'normal' as const })),
 	});
 	const png = new Resvg(svg, { fitTo: { mode: 'width', value: width } }).render().asPng();
 

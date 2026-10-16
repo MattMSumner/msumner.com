@@ -167,6 +167,7 @@ export const testimonials = [
 		quote: 'Matt is probably the most proactively caring, human, and impactful manager I’ve worked for in my almost-20-year career.',
 		name: 'Spencer Williams',
 		relationship: 'Reported to Matt',
+		featured: true,
 	},
 	{
 		quote: 'Matt was the manager who truly launched my career.',

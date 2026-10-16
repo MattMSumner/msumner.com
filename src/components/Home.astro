@@ -1,5 +1,5 @@
 ---
-import '@fontsource-variable/inter';
+import '@fontsource-variable/schibsted-grotesk';
 import { Picture } from 'astro:assets';
 import headshot from '../assets/headshot.jpg';
 import SocialMeta from './SocialMeta.astro';
@@ -20,6 +20,8 @@ import '../styles/theme.css';
 
 const description = `${person.title}. ${person.tagline} Led the org of up to 50 engineers behind HubSpot’s Customer Agent.`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const featured = testimonials.find((testimonial) => testimonial.featured);
+const carouselTestimonials = testimonials.filter((testimonial) => testimonial !== featured);
 ---
 
 <html lang="en">
@@ -155,8 +157,22 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 			</section>
 
 			<section id="praise" aria-labelledby="praise-heading">
-				<div class="section-head">
-					<h2 id="praise-heading">What people say</h2>
+				<h2 id="praise-heading">What people say</h2>
+				{
+					featured && (
+						<figure class="feature">
+							<blockquote cite={links.recommendations}>
+								<p>
+									<span class="feature-mark">“</span>{featured.quote}”
+								</p>
+							</blockquote>
+							<figcaption>
+								<span class="feature-name">{featured.name}</span> · {featured.relationship}
+							</figcaption>
+						</figure>
+					)
+				}
+				<div class="carousel-head">
 					<div class="carousel-controls" data-carousel-controls hidden>
 						<button type="button" class="carousel-button" data-carousel-step="-1" aria-controls="quotes" aria-label="Previous recommendations">
 							<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" /></svg>
@@ -169,7 +185,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 				<div class="quotes-viewport" id="quotes" role="region" aria-label="Recommendations (scrolls sideways)" tabindex="0" data-carousel>
 					<ul class="quotes">
 						{
-							testimonials.map((testimonial) => (
+							carouselTestimonials.map((testimonial) => (
 								<li class="quote-item">
 									<figure class="quote">
 										<blockquote cite={links.recommendations}>

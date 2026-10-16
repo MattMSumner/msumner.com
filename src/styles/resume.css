@@ -1,27 +1,27 @@
 :root {
-	--bg: #ffffff;
-	--surface: #f4f6fb;
-	--ink: #0f172a;
-	--muted: #475569;
-	--rule: #e2e8f0;
-	--accent: #3047d1;
-	--link: #3047d1;
-	--focus: #3047d1;
-	--button-ink: #ffffff;
-	--font-body: 'Inter Variable', system-ui, sans-serif;
+	--bg: #f3f0ea;
+	--surface: #e9e4da;
+	--ink: #1c211d;
+	--muted: #5f665f;
+	--rule: #d3ccbf;
+	--accent: #24543f;
+	--link: #24543f;
+	--focus: #24543f;
+	--button-ink: #f3f0ea;
+	--font-body: 'Schibsted Grotesk Variable', system-ui, sans-serif;
 }
 
 @media screen and (prefers-color-scheme: dark) {
 	:root {
-		--bg: #0b1020;
-		--surface: #121a2f;
-		--ink: #e6eaf2;
-		--muted: #a3adc2;
-		--rule: #222c45;
-		--accent: #93a6ff;
-		--link: #a5b4ff;
-		--focus: #a5b4ff;
-		--button-ink: #0b1020;
+		--bg: #1d1916;
+		--surface: #26211d;
+		--ink: #f3ebe1;
+		--muted: #b3a597;
+		--rule: #3a332d;
+		--accent: #f0b35a;
+		--link: #f0b35a;
+		--focus: #f0b35a;
+		--button-ink: #1d1916;
 	}
 }
 
@@ -47,7 +47,7 @@
 
 .resume-nav .button {
 	padding: 0.6rem 1.15rem;
-	border-radius: 999px;
+	border-radius: 0.5rem;
 	background: var(--accent);
 	color: var(--button-ink);
 	font-size: 0.95rem;
@@ -129,10 +129,10 @@
 
 	:root {
 		--bg: #ffffff;
-		--ink: #111827;
-		--muted: #4b5563;
-		--accent: #2a3fb8;
-		--link: #111827;
+		--ink: #1c211d;
+		--muted: #4f564f;
+		--accent: #24543f;
+		--link: #1c211d;
 	}
 
 	.resume-nav {
