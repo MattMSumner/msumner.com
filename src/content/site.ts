@@ -37,7 +37,7 @@ export const impact = [
 	{
 		figure: '53%',
 		label: 'of HubSpot’s AI usage',
-		detail: 'Customer Agent led all AI credit consumption at HubSpot in Q1 2026.',
+		detail: 'The most-used AI agent at HubSpot in Q1 2026, ahead of every other agent.',
 	},
 	{
 		figure: '2nd',

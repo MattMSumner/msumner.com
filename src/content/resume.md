@@ -15,7 +15,7 @@ Engineering leader with 15 years in software, from self-taught Rails developer t
 **Director of Engineering, Customer Agent** · Mar 2026 – Oct 2026<br>
 **Senior Engineering Manager, Customer Agent & Communication** · Jun 2022 – Mar 2026
 
-- **Led the engineering org behind Customer Agent**, HubSpot's AI customer-service agent, from launch to **more than 10,000 businesses** and **53% of HubSpot's AI credit consumption** (Q1 2026). It now resolves **72% of conversations** with no human involved, up from 20% at launch, across millions of conversations a month.
+- **Led the engineering org behind Customer Agent**, HubSpot's AI customer-service agent, from launch to **more than 10,000 businesses** and **53% of all AI usage at HubSpot** (Q1 2026). It now resolves **72% of conversations** with no human involved, up from 20% at launch, across millions of conversations a month.
 - **Owned the definition of a billable "resolution."** As DRI, defined what counts as a billable resolution for HubSpot's move to resolution-based pricing for Customer Agent, and presented it to the SOX steering committee.
 - **Kept engagement and retention high through constant change.** eNPS stayed among the highest at HubSpot (**2nd-highest company-wide in 2023**) through multiple re-orgs, a strategic pivot and a company-wide quality push. In 2024 the org grew from about 30 to 50 engineers with **only 3 departures**.
 - **Scaled and reshaped the org deliberately.** Grew the product group from about 30 to 50 engineers, refocused it to about 30 around Customer Agent, then rebuilt to **about 40 engineers** in mission-based teams with clear ownership and metrics.
