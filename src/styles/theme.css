@@ -424,7 +424,22 @@ h4 {
 	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: thin;
-	padding-bottom: 0.75rem;
+	scrollbar-color: var(--band-rule) transparent;
+	padding-bottom: 1.25rem;
+}
+
+/* Safari ignores scrollbar-color, so give it the same thin, quiet thumb. */
+.quotes-viewport::-webkit-scrollbar {
+	height: 6px;
+}
+
+.quotes-viewport::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.quotes-viewport::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background: var(--band-rule);
 }
 
 .quotes {
