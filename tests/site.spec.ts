@@ -39,7 +39,7 @@ test('recommendations carousel', async ({ page }) => {
 	await page.goto('/');
 
 	const carousel = page.getByRole('region', { name: /Recommendations/ });
-	await expect(carousel.getByRole('listitem')).toHaveCount(10);
+	await expect(carousel.getByRole('listitem')).toHaveCount(12);
 	await expect(page.locator('.feature')).toContainText('Spencer Williams');
 
 	const previous = page.getByRole('button', { name: 'Previous recommendations' });

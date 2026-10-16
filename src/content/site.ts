@@ -159,6 +159,16 @@ export const testimonials = [
 		relationship: 'Design partner',
 	},
 	{
+		quote: 'Matt is a rare combination of strong technical leadership, strategic vision, and execution.',
+		name: 'Christian Pyros',
+		relationship: 'Reported to Matt',
+	},
+	{
+		quote: 'He doesn’t just build engineering teams; he builds environments where people feel valued, supported, and excited about the work they’re doing.',
+		name: 'Bethany Allen',
+		relationship: 'Recruiting partner',
+	},
+	{
 		quote: 'Matt is the rare kind of leader who is both deeply empathetic and highly effective, and he never treated those as a tradeoff.',
 		name: 'Lynnsey Martin',
 		relationship: 'Reported to Matt',
