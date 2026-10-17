@@ -6,7 +6,7 @@ Greater Boston · [matt.m.sumner@gmail.com](mailto:matt.m.sumner@gmail.com) · [
 
 ## Summary
 
-Engineering leader with 15 years in software, from self-taught Rails developer to consultancy studio lead to Director of Engineering at HubSpot. I build diverse, highly engaged teams, and they deliver. My Customer Agent org of about 40 engineers took HubSpot's AI agent from an early experiment to more than 10,000 businesses; it now resolves 72% of customer conversations automatically. Through re-orgs, a product pivot and rapid AI change, the org kept an eNPS among the highest at HubSpot.
+Engineering leader with 15 years in software, 11 of them writing production code day to day. For nearly four of those years I led teams while still coding, first as Development Director of thoughtbot's Boston studio and then as an Engineering Lead at HubSpot. I still ship the occasional change myself. I build diverse, highly engaged teams, and they deliver. My Customer Agent org of about 40 engineers took HubSpot's AI agent from an early experiment to more than 10,000 businesses; it now resolves 72% of customer conversations automatically. Through re-orgs, a product pivot and rapid AI change, the org kept an eNPS among the highest at HubSpot.
 
 ## Experience
 
@@ -25,19 +25,21 @@ Engineering leader with 15 years in software, from self-taught Rails developer t
 - **Held a high bar with care.** Addressed underperformance directly through PIPs and exits. Spun down a legacy product team and moved its engineers to high-growth AI work, keeping attrition low.
 - **Led with radical transparency.** Wrote bi-weekly "Reflections" posts (2023–2026) and ran quarterly kickoffs and AMAs. Transparency was my top-rated value in upward feedback.
 - **Set technical and product direction.** Wrote the Customer Agent Platform vision, which Sales Hub adopted as a dependency.
+- **Kept shipping code.** Still shipped the occasional change to production as a manager and Director, and in 2026 re-embedded as an IC on the Customer Agent Quality team for 3 weeks, shipping production code with AI-assisted development.
 - **Bet early on AI.** Stood up a new team to ship an AI chatbot for INBOUND 2023. Ran product-group hackathons that led to a series of AI-assist features. Delivered **7 launches for HubSpot's 2024 Spring Spotlight**, including the AI chatbot, WhatsApp in Help Desk, a Live Chat mobile SDK (built with an external partner) and Reply Recommendations.
 
 **Engineering Lead, Conversations (Live Chat & Self Service)** · Apr 2020 – Jun 2022
 
+- **Player-coach: wrote and shipped production code as a core part of the role** while leading up to four teams and acting as Tech Lead on one. Introduced TypeScript, a Rollup build and integration tests to Customer Portal.
 - **Turned around a Live Chat team in "code red"** (missed deadlines, conflicting priorities, three leadership changes at once) by cutting scope into milestones that could ship in weeks. Team health and trust recovered.
 - **Led the year-long, cross-group build of the Customer Portal.** It was the top-requested feature on HubSpot's Ideas Forum (300+ upvotes). It went to beta at INBOUND 2021 and to general availability in the 2022 Service Hub relaunch.
-- Started monthly Engineering Lead cohorts across HubSpot and drove TypeScript adoption. Sponsored a Hack Diversity intern through a co-op to a full-time hire.
+- Started monthly Engineering Lead cohorts across HubSpot and drove TypeScript adoption, contributing code to it. Sponsored a Hack Diversity intern through a co-op to a full-time hire.
 
 ### thoughtbot · Boston, MA · Jun 2014 – Apr 2020
 
 **Development Director, Boston Studio** · Oct 2018 – Apr 2020
 
-- Led the growth and mentoring of a **~30-person studio** while staying hands-on. Owned hiring, the studio's reputation in Boston, and winning new client work, together with global leadership.
+- Led the growth and mentoring of a **~30-person studio** while staying hands-on as an engineer on client projects. Owned hiring, the studio's reputation in Boston, and winning new client work, together with global leadership.
 - Clients included **Indigo AG, Adobe, and Berklee College of Music**.
 
 **Developer** (from Apprentice) · Jun 2014 – Sep 2018

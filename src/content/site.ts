@@ -212,7 +212,7 @@ export const testimonials = [
 ];
 
 export const writing = {
-	summary: 'Before leadership I spent nine years writing code, and some of what I learned ended up in writing.',
+	summary: 'I spent 11 years writing production code day to day, the last few while leading teams, and some of what I learned ended up in writing.',
 	posts: [
 		{ title: 'The Real Story Behind Story Points', year: '2018', href: 'https://thoughtbot.com/blog/the-real-story-behind-story-points' },
 		{ title: 'Deadlines', year: '2017', href: 'https://thoughtbot.com/blog/deadlines' },
