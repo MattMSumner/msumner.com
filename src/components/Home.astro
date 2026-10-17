@@ -2,6 +2,8 @@
 import '@fontsource-variable/schibsted-grotesk';
 import { Picture } from 'astro:assets';
 import headshot from '../assets/headshot.jpg';
+import summitStage from '../assets/summit-stage.jpg';
+import ContactLinks from './ContactLinks.astro';
 import SocialMeta from './SocialMeta.astro';
 import {
 	alsoExperience,
@@ -54,17 +56,20 @@ const carouselTestimonials = testimonials.filter((testimonial) => testimonial !=
 				<p class="eyebrow">{person.title}</p>
 				<h1>{person.name}</h1>
 				<p class="tagline">{person.tagline}</p>
-				{person.intro.map((paragraph) => <p class="intro">{paragraph}</p>)}
+				{
+					person.intro.map((paragraph) => (
+						<p class="intro">
+							{paragraph.lead}
+							{paragraph.link && <a href={paragraph.link.href}>{paragraph.link.text}</a>}
+							{paragraph.rest}
+						</p>
+					))
+				}
 				<p class="where">
 					<span>{person.location}</span>
 					<span>{person.workPreferences}</span>
 				</p>
-				<nav class="cta" aria-label="Get in touch">
-					<a class="button button-primary" href={links.email}>Email me</a>
-					<a class="button" href={links.booking}>Book a chat</a>
-					<a class="button" href={links.linkedin}>LinkedIn</a>
-					{links.resume && <a class="button" href={links.resume}>Resume (PDF)</a>}
-				</nav>
+				<ContactLinks label="Get in touch" />
 			</div>
 		</header>
 
@@ -140,13 +145,23 @@ const carouselTestimonials = testimonials.filter((testimonial) => testimonial !=
 
 			<section id="speaking" aria-labelledby="speaking-heading">
 				<h2 id="speaking-heading">Speaking</h2>
+				<figure class="stage">
+					<Picture
+						src={summitStage}
+						widths={[384, 768]}
+						sizes="(min-width: 960px) 320px, 100vw"
+						formats={['avif', 'webp']}
+						alt="Matt Sumner on stage in front of a large audience, presenting a slide about Customer Agent"
+					/>
+					<figcaption>Speaking about Customer Agent at Inbound Marketing Summit 2026 in Medellín.</figcaption>
+				</figure>
 				<ul class="talks">
 					{
 						talks.map((talk) => (
 							<li class="talk">
 								<span class="talk-title">{talk.title}</span>
 								<span class="meta">
-									{talk.venue}
+									{talk.href ? <a href={talk.href}>{talk.venue}</a> : talk.venue}
 									{talk.year && ` · ${talk.year}`}
 								</span>
 							</li>
@@ -225,6 +240,11 @@ const carouselTestimonials = testimonials.filter((testimonial) => testimonial !=
 				</p>
 			</section>
 
+			<section id="outside-work" aria-labelledby="outside-work-heading">
+				<h2 id="outside-work-heading">Outside work</h2>
+				<p>{person.personal}</p>
+			</section>
+
 			<section id="contact" aria-labelledby="contact-heading">
 				<h2 id="contact-heading">Let’s talk</h2>
 				<p class="contact-lead">
@@ -234,12 +254,7 @@ const carouselTestimonials = testimonials.filter((testimonial) => testimonial !=
 					<span>{person.location}</span>
 					<span>{person.workPreferences}</span>
 				</p>
-				<nav class="cta" aria-label="Get in touch again">
-					<a class="button button-primary" href={links.email}>Email me</a>
-					<a class="button" href={links.booking}>Book a chat</a>
-					<a class="button" href={links.linkedin}>LinkedIn</a>
-					{links.resume && <a class="button" href={links.resume}>Resume (PDF)</a>}
-				</nav>
+				<ContactLinks label="Get in touch again" />
 			</section>
 		</main>
 
@@ -253,10 +268,7 @@ const carouselTestimonials = testimonials.filter((testimonial) => testimonial !=
 		<div class="contact-bar" data-contact-bar>
 			<div class="contact-bar-inner">
 				<p class="contact-bar-name">{person.name}</p>
-				<nav class="contact-bar-links" aria-label="Quick contact">
-					<a class="button button-primary" href={links.email}>Email me</a>
-					<a class="button" href={links.booking}>Book a chat</a>
-				</nav>
+				<ContactLinks label="Quick contact" compact />
 			</div>
 		</div>
 

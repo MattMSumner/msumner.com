@@ -3,12 +3,18 @@ export const person = {
 	title: 'Engineering Leader',
 	tagline: 'I build diverse, engaged engineering teams, and they deliver.',
 	intro: [
-		'Most recently I was Director of Engineering for Customer Agent at HubSpot, the AI agent that now resolves 72% of customer conversations automatically. My org of up to 50 engineers took it from an early experiment to a product more than 10,000 businesses use.',
-		'My role was impacted in HubSpot’s 7% restructuring in October 2026, and I’m looking for my next engineering leadership role on a team building products people trust.',
-	],
+		{
+			lead: 'Most recently I was Director of Engineering for ',
+			link: { text: 'Customer Agent at HubSpot', href: 'https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent' },
+			rest: '. It’s the most-used of HubSpot’s AI agents, and customers pay only when it resolves a conversation, which it now does 72% of the time. My org of up to 50 engineers took it from an early experiment to a product more than 10,000 businesses use.',
+		},
+		{ lead: 'I’m looking for my next engineering leadership role on a team building products people trust.' },
+	] as { lead: string; link?: { text: string; href: string }; rest?: string }[],
 	proof: 'Led the org behind HubSpot’s Customer Agent: used by more than 10,000 businesses, and resolving 72% of customer conversations automatically.',
 	location: 'Greater Boston',
 	workPreferences: 'Open to remote (US), hybrid or on-site in Boston.',
+	personal:
+		'I live in Greater Boston with my wife, our two kids, a dog and two cats. We love playing games of every kind: sports, video games and board games. I grew up in England and love living in Massachusetts. I coach my son’s soccer team and play rec volleyball.',
 };
 
 export const links = {
@@ -128,6 +134,7 @@ export const talks = [
 	{
 		title: 'AI Applied to Revenue',
 		venue: 'Inbound Marketing Summit, Medellín, Colombia',
+		href: 'https://inboundmarketingsummit.triario.co/',
 		year: '2026',
 	},
 	{
@@ -138,7 +145,7 @@ export const talks = [
 	{ title: 'We Write Code for Humans', venue: 'HubSpot EPIC Week', year: '' },
 	{ title: 'The Power of Telling People What You Want', venue: 'HubSpot EPIC Week', year: '' },
 	{ title: 'Iterative Development: Working Out What to Do Next', venue: 'HubSpot EPIC Week', year: '' },
-];
+] as { title: string; venue: string; href?: string; year: string }[];
 
 export const talksNote = 'I’ve spoken at HubSpot’s EPIC Week every year since 2020, including a career-paths panel in 2022 and “Parents in HubSpot” in 2024.';
 

@@ -12,7 +12,7 @@ test('home page renders', async ({ page }) => {
 test('has every section', async ({ page }) => {
 	await page.goto('/');
 
-	for (const heading of ['Impact', 'How I lead', 'Experience', 'Speaking', 'What people say', 'Writing', 'Let’s talk']) {
+	for (const heading of ['Impact', 'How I lead', 'Experience', 'Speaking', 'What people say', 'Writing', 'Outside work', 'Let’s talk']) {
 		await expect(page.getByRole('heading', { level: 2, name: heading })).toBeVisible();
 	}
 });
@@ -30,6 +30,7 @@ test('contact buttons point to the right places', async ({ page }) => {
 			'href',
 			'https://www.linkedin.com/in/matt-m-sumner/',
 		);
+		await expect(nav.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/MattMSumner');
 		await expect(nav.getByRole('link', { name: 'Resume (PDF)' })).toHaveAttribute('href', '/resume.pdf');
 	}
 	expect(await page.getByRole('navigation').count()).toBe(2);
