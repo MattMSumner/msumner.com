@@ -5,7 +5,7 @@ for (const colorScheme of ['light', 'dark'] as const) {
 	test.describe(`${colorScheme} mode`, () => {
 		test.use({ colorScheme });
 
-		for (const path of ['/', '/resume/']) {
+		for (const path of ['/', '/resume/', '/mockups/slate/', '/mockups/bold/', '/mockups/engineer/']) {
 			test(`${path} has no WCAG A/AA violations`, async ({ page }) => {
 				await page.goto(path);
 

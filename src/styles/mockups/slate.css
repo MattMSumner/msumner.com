@@ -1,0 +1,32 @@
+/* Slate: same typeface and accents, but cool neutrals instead of warm stone
+   and charcoal. The smallest change that drops the warm "AI product" feel. */
+:root[data-variant='slate'] {
+	--bg: #f5f6f8;
+	--surface: #eaedf0;
+	--raise: #ffffff;
+	--ink: #15191e;
+	--muted: #59616b;
+	--rule: #d6dbe0;
+	--primary-bg: #15191e;
+	--primary-ink: #f5f6f8;
+	--band-ink: #f5f6f8;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root[data-variant='slate'] {
+		--glow: transparent;
+		--primary-bg: #f0b35a;
+		--bg: #111418;
+		--surface: #191d22;
+		--raise: #21262c;
+		--ink: #eceff2;
+		--muted: #9ba3ad;
+		--rule: #2b3138;
+		--primary-ink: #111418;
+		--primary-hover-bg: #eceff2;
+		--band-bg: #191d22;
+		--band-ink: #eceff2;
+		--band-muted: #9ba3ad;
+		--band-rule: #2b3138;
+	}
+}

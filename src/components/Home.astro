@@ -20,13 +20,19 @@ import {
 import '../styles/base.css';
 import '../styles/theme.css';
 
+interface Props {
+	/** Theme mockup to preview; only set by the pages under /mockups/. */
+	variant?: string;
+}
+
+const { variant } = Astro.props;
 const description = `${person.title}. ${person.tagline} Led the org of up to 50 engineers behind HubSpot’s Customer Agent.`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const featured = testimonials.find((testimonial) => testimonial.featured);
 const carouselTestimonials = testimonials.filter((testimonial) => testimonial !== featured);
 ---
 
-<html lang="en">
+<html lang="en" data-variant={variant}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,6 +41,7 @@ const carouselTestimonials = testimonials.filter((testimonial) => testimonial !=
 		<link rel="icon" href="/favicon.ico" />
 		<title>{person.name} · {person.title}</title>
 		<meta name="description" content={description} />
+		{variant && <meta name="robots" content="noindex" />}
 		<link rel="canonical" href={canonical} />
 		<SocialMeta title={`${person.name} · ${person.title}`} description={description} />
 	</head>

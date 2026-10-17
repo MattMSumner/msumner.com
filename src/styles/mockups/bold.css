@@ -1,0 +1,49 @@
+/* Bold: crisp white or true black, a characterful display face for headings,
+   and a black recommendations band. */
+@import '@fontsource-variable/bricolage-grotesque/opsz.css';
+
+:root[data-variant='bold'] {
+	--bg: #ffffff;
+	--surface: #f1f3f2;
+	--raise: #ffffff;
+	--ink: #0d0f0e;
+	--muted: #545a57;
+	--rule: #dfe3e1;
+	--primary-bg: #0d0f0e;
+	--primary-ink: #ffffff;
+	--band-bg: #0d0f0e;
+	--band-ink: #ffffff;
+	--band-muted: #b6bcb9;
+	--band-rule: #2c302e;
+	--band-accent: #8fd1ad;
+	--font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root[data-variant='bold'] {
+		--glow: transparent;
+		--primary-bg: #f0b35a;
+		--bg: #0b0b0c;
+		--surface: #161618;
+		--raise: #1d1d20;
+		--ink: #f5f5f4;
+		--muted: #a3a3a8;
+		--rule: #28282c;
+		--primary-ink: #0b0b0c;
+		--primary-hover-bg: #f5f5f4;
+		--band-bg: #161618;
+		--band-ink: #f5f5f4;
+		--band-muted: #a3a3a8;
+		--band-rule: #28282c;
+		--band-accent: #f0b35a;
+	}
+}
+
+[data-variant='bold'] :is(h1, h2, h3, .tagline, .stat-figure, .feature blockquote) {
+	font-family: var(--font-display);
+}
+
+[data-variant='bold'] h1 {
+	font-weight: 800;
+	letter-spacing: -0.05em;
+}
