@@ -1,27 +1,31 @@
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-sans/700.css';
+
 :root {
-	--bg: #f3f0ea;
-	--surface: #e9e4da;
-	--ink: #1c211d;
-	--muted: #5f665f;
-	--rule: #d3ccbf;
+	--bg: #eef1f4;
+	--surface: #e2e7ec;
+	--ink: #121821;
+	--muted: #535e6b;
+	--rule: #cdd4dc;
 	--accent: #24543f;
 	--link: #24543f;
 	--focus: #24543f;
-	--button-ink: #f3f0ea;
-	--font-body: 'Schibsted Grotesk Variable', system-ui, sans-serif;
+	--button-ink: #eef1f4;
+	--font-body: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
 @media screen and (prefers-color-scheme: dark) {
 	:root {
-		--bg: #1d1916;
-		--surface: #26211d;
-		--ink: #f3ebe1;
-		--muted: #b3a597;
-		--rule: #3a332d;
+		--bg: #0e1319;
+		--surface: #151c24;
+		--ink: #e6ebf0;
+		--muted: #95a2b0;
+		--rule: #26303c;
 		--accent: #f0b35a;
 		--link: #f0b35a;
 		--focus: #f0b35a;
-		--button-ink: #1d1916;
+		--button-ink: #0e1319;
 	}
 }
 
@@ -58,7 +62,7 @@
 }
 
 .resume h1 {
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 2.5rem;
 	letter-spacing: -0.03em;
 	line-height: 1.1;
@@ -81,7 +85,7 @@
 	margin-bottom: 0.75rem;
 	padding-bottom: 0.35rem;
 	border-bottom: 2px solid var(--ink);
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 1rem;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
@@ -129,10 +133,10 @@
 
 	:root {
 		--bg: #ffffff;
-		--ink: #1c211d;
-		--muted: #4f564f;
+		--ink: #121821;
+		--muted: #4b5562;
 		--accent: #24543f;
-		--link: #1c211d;
+		--link: #121821;
 	}
 
 	.resume-nav {
