@@ -43,6 +43,10 @@ and commit the new PDF. The script stamps a fingerprint of the source files
 `src/styles/resume.css`) into the PDF's metadata, and a test fails if the
 committed PDF doesn't match the current source.
 
+Run `npm test` after generating the PDF: it rebuilds the site so `dist/` contains
+the new PDF, then checks its fingerprint and publication constraints. The build
+inside `npm run resume` happens before the new PDF is written.
+
 ## Link previews
 
 `src/pages/og.png.ts` generates `/og.png`, the 1200×630 image LinkedIn, Slack

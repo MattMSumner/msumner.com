@@ -76,6 +76,32 @@ team sizes, home-town details, and prohibited claims out of public content.
 Use rounded team sizes and Greater Boston, as existing content does. Do not weaken
 the guards just to make new copy pass; review the rules when changing public copy.
 
+## Resume refreshes
+
+Matt's working resume and supporting notes are outside this repository in
+`~/development/notes/resume/`. Start with `Matt-Sumner-Resume.md` and the dated
+decisions in `brag-doc.md`; `linkedin-recommendations.md` records testimonial
+excerpts and reporting relationships. Tailored resumes provide additional context,
+but do not automatically supersede the base resume or explicit dated decisions.
+These are private working sources: selectively adapt approved public material,
+not whole files, into this repository. Resolve conflicting claims before publishing.
+
+Current content decisions (October 29, 2026):
+
+- Headline scope is **about 50 engineers**, reflecting peak scope. Keep **about
+  40 engineers** in the Director role and the **30 → 50 → 30 → 40** progression
+  in detailed experience. Do not globally replace team sizes.
+- The 53% metric is **HubSpot's AI credit consumption (Q1 2026)**, not generic
+  AI usage. The launch resolution rate is **about 20%**; EPIC Week talks span
+  **2020–2025**; the three-departure retention claim refers to **2024**.
+- Coordinate edits across `src/content/site.ts`, the description in
+  `src/components/Home.astro`, and `src/content/resume.md`, then regenerate the PDF.
+- Keep testimonial excerpts faithful to the source and distinguish direct reports
+  from members of Matt's org. The LinkedIn link says "Read more recommendations"
+  because the site's selection is not the full LinkedIn set.
+- Board-service titles and dates differ between the base resume and supporting
+  notes. Leave that addition pending clarification rather than copying either version.
+
 ## Hosting and CI
 
 `.github/workflows/ci.yml` runs checks and tests on pull requests and pushes to
@@ -84,6 +110,13 @@ The README documents Cloudflare Workers Builds: pushes to `main` deploy producti
 and other branches receive public previews. Treat branch content as public.
 DNS, redirects, and analytics settings are documented in the README and managed
 outside this repository.
+
+Before an authorized merge, check both GitHub CI and Cloudflare Workers Builds on
+the current PR head, including after a rebase. A successful preview does not verify
+the subsequent production deployment. If Cloudflare fails, inspect its build logs;
+GitHub's check summary may contain only a dashboard link. Check `npx wrangler whoami`
+before attempting authenticated diagnostics. A later green result does not establish
+why an earlier build failed.
 
 ## Documentation
 
