@@ -6,7 +6,7 @@ export const person = {
 		{
 			lead: 'Most recently I was Director of Engineering for ',
 			link: { text: 'Customer Agent at HubSpot', href: 'https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent' },
-			rest: '. I led it from its first team in 2023 to a product used by more than 10,000 businesses, with automated resolution improving from about 20% at launch to 72%. Along the way, I built and reshaped an org of about 40 engineers, partnering closely with Product and Design.',
+			rest: '. I led it from its first team in 2023 to a product used by more than 10,000 businesses, with automated resolution improving from about 20% at launch to 72%. Along the way, I built and reshaped an org that grew to about 50 engineers, partnering closely with Product and Design.',
 		},
 		{ lead: 'I’m looking for my next engineering leadership role on a team building products people trust.' },
 	] as { lead: string; link?: { text: string; href: string }; rest?: string }[],
