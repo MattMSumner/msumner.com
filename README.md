@@ -18,10 +18,10 @@ npm test         # build, then run the Playwright suite against the built site
 
 ## Content and design
 
-The site is a single page. Its words and links live in `src/content/site.ts`,
+The site has a home page and a separate resume page. The home page's words and links live in `src/content/site.ts`,
 the markup in `src/components/Home.astro`, and the styles in `src/styles/`
 (`base.css` for resets and shared behaviour, `theme.css` for the design and its
-light and dark colour tokens). Inter is self-hosted via Fontsource, so pages
+light and dark colour tokens). IBM Plex Sans and IBM Plex Mono are self-hosted via Fontsource, so pages
 make no requests to Google. The headshot in `src/assets/` has had its EXIF
 metadata stripped, and Astro serves it as responsive AVIF and WebP.
 
@@ -48,7 +48,8 @@ committed PDF doesn't match the current source.
 `src/pages/og.png.ts` generates `/og.png`, the 1200×630 image LinkedIn, Slack
 and others show when someone shares a link. It's built on every `astro build`
 with [satori](https://github.com/vercel/satori) (layout and text to SVG, using
-the static Inter files from `@fontsource/inter`) and
+the static IBM Plex Sans and IBM Plex Mono files from `@fontsource/ibm-plex-sans`
+and `@fontsource/ibm-plex-mono`) and
 [resvg](https://github.com/yisibl/resvg-js) (SVG to PNG), so it needs no
 browser and can't go stale. Its words come from `src/content/site.ts`.
 
