@@ -6,7 +6,7 @@ export const person = {
 		{
 			lead: 'Most recently I was Director of Engineering for ',
 			link: { text: 'Customer Agent at HubSpot', href: 'https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent' },
-			rest: '. I led it from its first team in 2023 to a product used by more than 10,000 businesses, with automated resolution improving from about 20% at launch to 72%. Along the way, I built and reshaped an org that grew to about 50 engineers, partnering closely with Product and Design.',
+			rest: '. I led it from its first team in 2023 to a product used by more than 10,000 businesses, with automated resolution improving from about 20% at launch to 72%. Along the way, I built and reshaped an org that peaked at about 50 engineers, partnering closely with Product and Design.',
 		},
 		{ lead: 'I’m looking for my next engineering leadership role on a team building products people trust.' },
 	] as { lead: string; link?: { text: string; href: string }; rest?: string }[],
@@ -42,13 +42,13 @@ export const impact = [
 	},
 	{
 		figure: '53%',
-		label: 'of HubSpot’s AI credit consumption',
-		detail: 'Customer Agent’s share of HubSpot’s AI credit consumption in Q1 2026.',
+		label: 'of AI credits consumed by HubSpot customers',
+		detail: 'Customer Agent’s share across HubSpot’s AI products in Q1 2026.',
 	},
 	{
-		figure: '2nd',
-		label: 'highest eNPS at HubSpot',
-		detail: 'Company-wide in 2023, across an org of 30 to 50 engineers with a roughly 50/50 gender split.',
+		figure: '4',
+		label: 'leads coached into Engineering Manager roles',
+		detail: 'Within my org in 2026, after sponsoring 7 promotions in 2025.',
 	},
 ];
 
@@ -80,17 +80,17 @@ export const experience = [
 			{
 				title: 'Director of Engineering, Customer Agent',
 				dates: 'Mar 2026 – Oct 2026',
-				summary: 'Led about 40 engineers in mission-based teams building Customer Agent, setting direction together with Product and Design. Live Chat and Voice joined the group in 2026. I still ship production code: that year, I spent three weeks embedded with the Customer Agent Quality team, working with AI coding tools and sharing what I learned with the org.',
+				summary: 'Led about 40 engineers across 13 teams spanning Customer Agent, Live Chat and Voice, through nine engineering and technical leaders. Partnered with Product and Design on strategy and wrote the Customer Agent Platform vision, which Sales Hub adopted as a roadmap dependency. Re-embedded as an IC using Claude Code in the terminal, and led a discussion within my org on adapting code review, focusing on tools reviewers use to understand changes beyond reading each line.',
 			},
 			{
 				title: 'Senior Engineering Manager, Customer Agent & Communication',
 				dates: 'Jun 2022 – Mar 2026',
-				summary: 'Grew the group from about 30 to 50 engineers in 2024 with only 3 departures, refocused it to about 30 around Customer Agent, then rebuilt it to about 40. Aligned engineering, product and finance on an auditable definition of a billable resolution for Customer Agent’s move to outcome-based pricing. Led the org through a Code Orange quality push that cut email churn from 41% to 22%, and its 7 launches for Spring Spotlight 2024, including the AI chatbot.',
+				summary: 'Grew the group from about 30 to 50 engineers in 2024, refocused it to about 30 around Customer Agent, then rebuilt it to about 40. Aligned engineering, product and finance on an auditable definition of a billable resolution for Customer Agent’s move to outcome-based pricing. Led the org’s work in a HubSpot-wide product-quality initiative; Customer Agent email churn fell from 41% to 22%. Delivered 7 launches for Spring Spotlight 2024, including the AI chatbot. In 2025, re-embedded as an IC using Cursor for frontend development and ran an Engineering AMA.',
 			},
 			{
 				title: 'Engineering Lead, Conversations',
 				dates: 'Apr 2020 – Jun 2022',
-				summary: 'Led up to four Live Chat and Self Service teams while acting as tech lead and writing production code. Led the year-long, cross-group build of Customer Portal, the top-requested feature on HubSpot’s Ideas Forum, which launched in the 2022 Service Hub relaunch.',
+				summary: 'Led up to four Live Chat and Self Service teams while acting as tech lead and writing production code. Led the year-long, cross-group build of Customer Portal, giving customers a branded self-service hub to track support requests and find answers. Championed integration with HubSpot’s CMS and delivered general availability in the 2022 Service Hub relaunch.',
 			},
 		],
 	},
@@ -139,7 +139,7 @@ export const talks = [
 	},
 	{
 		title: 'Building Psychological Safety',
-		venue: 'HubSpot EPIC Week · now part of new-hire onboarding',
+		venue: 'HubSpot’s annual internal conference, EPIC Week · now part of new-hire onboarding',
 		year: '',
 	},
 	{ title: 'We Write Code for Humans', venue: 'HubSpot EPIC Week', year: '' },
@@ -147,7 +147,7 @@ export const talks = [
 	{ title: 'Iterative Development: Working Out What to Do Next', venue: 'HubSpot EPIC Week', year: '' },
 ] as { title: string; venue: string; href?: string; year: string }[];
 
-export const talksNote = 'I’ve spoken at HubSpot’s EPIC Week every year from 2020–2025, including a career-paths panel in 2022 and “Parents in HubSpot” in 2024.';
+export const talksNote = 'I spoke at EPIC Week, HubSpot’s annual internal conference, every year from 2020–2025, including a career-paths panel in 2022 and “Parents in HubSpot” in 2024.';
 
 export const testimonials = [
 	{
