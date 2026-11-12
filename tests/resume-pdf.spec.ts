@@ -12,9 +12,18 @@ test('PDF regrouping preserves all bullet copy and links, and leaves the public 
 	const originalLinks = await links();
 	const originalMarkup = await page.locator('.resume').innerHTML();
 	await page.evaluate(formatResumeForPdf);
-	expect((await bullets()).sort()).toEqual(originalBullets.sort());
+	// Compare sentences rather than bullet boundaries: the PDF separates two
+	// accomplishment sentences from their original responsibility bullets.
+	const sentences = (items: string[]) => items.join(' ').trim().split(/(?<=[.!?])\s+/).sort();
+	expect(sentences(await bullets())).toEqual(sentences(originalBullets));
 	expect(await links()).toEqual(originalLinks);
-	await expect(page.getByRole('heading', { name: 'Key Accomplishments', exact: true })).toHaveCount(3);
+	await expect(page.getByRole('heading', { name: 'Key Accomplishments', exact: true })).toHaveCount(4);
+	const accomplishmentGroups = page.locator('.pdf-accomplishments');
+	await expect(accomplishmentGroups.nth(1).getByRole('listitem')).toHaveText([
+		originalBullets.find((text) => text.startsWith('Turned around a Live Chat'))!,
+		'Sponsored a Hack Diversity intern through a co-op to a full-time hire.',
+	]);
+	await expect(accomplishmentGroups.nth(3).getByRole('listitem')).toHaveText('Wrote 10+ posts for thoughtbot’s engineering blog.');
 	await expect(page.locator('.resume h3').first()).toHaveText('HubSpot Apr 2020 – Oct 2026');
 	await expect(page.getByRole('heading', { name: 'Education, Thought Leadership, and Additional Experience', exact: true })).toBeVisible();
 	await expect(page.locator('.pdf-contact a')).toHaveCount(4);

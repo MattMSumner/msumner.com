@@ -31,6 +31,25 @@ export function formatResumeForPdf() {
 	for (const list of experience.nodes.filter((node) => node.tagName === 'UL')) {
 		const items = [...list.children];
 		const selected = items.filter((item) => achievements.some((prefix) => item.textContent!.startsWith(prefix)));
+		// Two source bullets combine responsibilities with a final accomplishment.
+		// Split only the PDF's nodes, retaining wording and any inline markup.
+		for (const item of items) {
+			const walker = document.createTreeWalker(item, NodeFilter.SHOW_TEXT);
+			for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+				const text = node as Text;
+				const start = ['Sponsored a Hack Diversity intern', 'Wrote 10+ posts']
+					.map((prefix) => text.data.indexOf(prefix)).find((index) => index >= 0);
+				if (start === undefined) continue;
+				const sentence = text.splitText(start);
+				const range = document.createRange();
+				range.setStartBefore(sentence);
+				range.setEnd(item, item.childNodes.length);
+				const accomplishment = document.createElement('li');
+				accomplishment.append(range.extractContents());
+				selected.push(accomplishment);
+				break;
+			}
+		}
 		// The second thoughtbot studio bullet describes the client portfolio.
 		if (list.previousElementSibling?.textContent?.startsWith('Development Director')) selected.push(...items.slice(1));
 		if (!selected.length) continue;
