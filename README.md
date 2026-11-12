@@ -38,10 +38,17 @@ styles, run:
 npm run resume   # builds the site, prints /resume/ to public/resume.pdf with Playwright
 ```
 
-and commit the new PDF. The script stamps a fingerprint of the source files
-(`src/content/resume.md`, `src/pages/resume.astro`, `src/styles/base.css` and
-`src/styles/resume.css`) into the PDF's metadata, and a test fails if the
-committed PDF doesn't match the current source.
+and commit the new PDF. Generation uses the current Markdown content, then applies
+`scripts/format-resume-for-pdf.ts` and `scripts/resume-pdf.css` only in the PDF
+browser. These provide RiseSmart-style responsibility/accomplishment groups,
+teal role titles, aligned dates and a dark contact banner. Embedded Carlito
+fonts (a Calibri-compatible alternative) keep rendering consistent in CI.
+The complete fonts and SIL Open Font License are in `scripts/fonts/`.
+The `/resume/` webpage retains its existing content order and styling.
+
+The script stamps a fingerprint of the content, webpage styles, PDF formatter,
+generator, PDF styles and font files into the PDF's metadata. The source list
+lives in `scripts/resume-source.ts`; tests reject an outdated PDF.
 
 Run `npm test` after generating the PDF: it rebuilds the site so `dist/` contains
 the new PDF, then checks its fingerprint and publication constraints. The build

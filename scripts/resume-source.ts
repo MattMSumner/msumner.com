@@ -7,6 +7,12 @@ export const resumeSources = [
 	'src/pages/resume.astro',
 	'src/styles/base.css',
 	'src/styles/resume.css',
+	'scripts/build-resume-pdf.ts',
+	'scripts/format-resume-for-pdf.ts',
+	'scripts/resume-pdf.css',
+	'scripts/fonts/Carlito-Regular.ttf',
+	'scripts/fonts/Carlito-Bold.ttf',
+	'scripts/fonts/Carlito-Italic.ttf',
 ];
 
 export function resumeSourceHash(root: string): string {
