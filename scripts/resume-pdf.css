@@ -33,8 +33,8 @@ body.resume-page {
 	color: #fff;
 	font-size: 9pt;
 	line-height: 1.3;
-	margin: 10pt -0.5in 10pt;
-	padding: 6pt 0.5in;
+	margin: 10pt 0;
+	padding: 6pt 8pt;
 	background: repeating-linear-gradient(172deg, transparent 0 3px, #ffffff14 4px, transparent 5px 9px), linear-gradient(100deg, #080a0c, #292d30, #080a0c);
 }
 .pdf-contact a { color: #fff; }
@@ -52,7 +52,7 @@ body.resume-page {
 	margin: 9pt 0 5pt;
 	padding-bottom: 3pt;
 }
-.resume-pdf h3 {
+.resume-pdf .pdf-company {
 	display: flex;
 	justify-content: space-between;
 	gap: 12pt;
@@ -60,7 +60,7 @@ body.resume-page {
 	margin: 7pt 0 3pt;
 	color: #262626;
 }
-.resume-pdf h3 span:last-child { white-space: nowrap; }
+.resume-pdf .pdf-company span:last-child { white-space: pre; }
 .resume-pdf .pdf-role {
 	color: #1f6765;
 	margin-top: 3pt;
@@ -73,7 +73,8 @@ body.resume-page {
 }
 .resume-pdf li { margin-bottom: 3pt; }
 .resume-pdf li::marker { color: #000; }
-.resume-pdf h4 {
+.resume-pdf h4,
+.resume-pdf .pdf-subheading {
 	font-size: 11pt;
 	margin: 6pt 0 3pt;
 	break-after: avoid;
@@ -86,4 +87,4 @@ body.resume-page {
 }
 .resume-pdf blockquote em { color: #262626; }
 
-.resume-pdf h3 + p > strong { color: #1f6765; }
+.resume-pdf .pdf-company + p > strong { color: #1f6765; }

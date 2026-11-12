@@ -44,11 +44,14 @@ export function formatResumeForPdf() {
 	for (const heading of experience.nodes.filter((node) => node.tagName === 'H3')) {
 		const parts = heading.textContent!.split(' · ');
 		if (parts.length !== 3) throw new Error(`Expected company, location and dates: ${heading.textContent}`);
+		heading.classList.add('pdf-company');
 		heading.replaceChildren();
 		const company = document.createElement('span');
 		company.textContent = parts[0]!;
 		const dates = document.createElement('span');
-		dates.textContent = parts[2]!;
+		// Keep the separator inside a rendered text run so Chromium retains it
+		// in the PDF outline; whitespace between flex items is discarded.
+		dates.textContent = ` ${parts[2]!}`;
 		heading.append(company, dates);
 		if (parts[0] === 'The Beech Group') {
 			const label = document.createElement('h2');
@@ -69,7 +72,8 @@ export function formatResumeForPdf() {
 		['Additional Experience', additional.nodes],
 		['What my teams say', testimonials.nodes],
 	] as const) {
-		const label = document.createElement('h4');
+		const label = document.createElement('h3');
+		label.className = 'pdf-subheading';
 		label.textContent = title;
 		resume.append(label, ...nodes);
 	}
