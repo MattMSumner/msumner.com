@@ -1,0 +1,89 @@
+/* Loaded only by npm run resume, after the webpage's print stylesheet. */
+@page {
+	size: Letter;
+	margin: 0.5in;
+}
+:root {
+	--bg: #fff;
+	--ink: #000;
+	--muted: #262626;
+	--accent: #1f6765;
+	--link: #000;
+	--font-body: 'Resume Carlito', sans-serif;
+}
+body.resume-page {
+	font-family: var(--font-body);
+	font-size: 11pt;
+	line-height: 1.12;
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+.resume-pdf h1 {
+	font-size: 25pt;
+	letter-spacing: 0;
+	line-height: 1.1;
+}
+.resume-pdf h1 + .pdf-title {
+	font-size: 20pt;
+	line-height: 1.15;
+	margin-top: 3pt;
+	color: #1f6765;
+}
+.resume-pdf h1 + p + .pdf-contact {
+	color: #fff;
+	font-size: 9pt;
+	line-height: 1.3;
+	margin: 10pt -0.5in 10pt;
+	padding: 6pt 0.5in;
+	background: repeating-linear-gradient(172deg, transparent 0 3px, #ffffff14 4px, transparent 5px 9px), linear-gradient(100deg, #080a0c, #292d30, #080a0c);
+}
+.pdf-contact a { color: #fff; }
+.resume-pdf .pdf-expertise {
+	border-bottom: 0.5pt solid #d9d9d9;
+	padding-bottom: 6pt;
+	margin-top: 7pt;
+}
+.resume-pdf h2 {
+	font-size: 11pt;
+	text-transform: none;
+	letter-spacing: 0;
+	color: #262626;
+	border-bottom: 0.5pt solid #d9d9d9;
+	margin: 9pt 0 5pt;
+	padding-bottom: 3pt;
+}
+.resume-pdf h3 {
+	display: flex;
+	justify-content: space-between;
+	gap: 12pt;
+	font-size: 11pt;
+	margin: 7pt 0 3pt;
+	color: #262626;
+}
+.resume-pdf h3 span:last-child { white-space: nowrap; }
+.resume-pdf .pdf-role {
+	color: #1f6765;
+	margin-top: 3pt;
+	break-after: avoid;
+}
+.resume-pdf ul {
+	display: block;
+	margin: 4pt 0 6pt;
+	padding-left: 14pt;
+}
+.resume-pdf li { margin-bottom: 3pt; }
+.resume-pdf li::marker { color: #000; }
+.resume-pdf h4 {
+	font-size: 11pt;
+	margin: 6pt 0 3pt;
+	break-after: avoid;
+}
+.resume-pdf .pdf-accomplishments { margin-left: 12pt; }
+.resume-pdf blockquote {
+	margin: 4pt 0;
+	padding-left: 8pt;
+	border-left: 1pt solid #d9d9d9;
+}
+.resume-pdf blockquote em { color: #262626; }
+
+.resume-pdf h3 + p > strong { color: #1f6765; }
